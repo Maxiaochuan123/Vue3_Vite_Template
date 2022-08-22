@@ -36,6 +36,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           REMOTE_HOST:  ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: "root"
-          SOURCE: "http"
+          SOURCE: "dist"
           TARGET: "/www/wwwroot/"
           ARGS: "-avzr --delete"
