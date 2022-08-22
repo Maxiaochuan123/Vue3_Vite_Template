@@ -32,7 +32,7 @@ import MySuspense from "@components/Suspense/index.vue";
 <template>
   <ElConfigProvider :size="size" :locale="locale">
     <img alt="Vue logo" src="@assets/logo.png" />
-    <h4>pnpm 缓存优化</h4>
+    <h4>pnpm 缓存优化2</h4>
     <!-- 配合 Router 组件打开 -->
     <!-- <router-view /> -->
 
