@@ -1,8 +1,8 @@
 <!--
  * @Date: 2022-08-17
  * @Author: 马晓川 maxc@dustess.com
- * @LastEditors: 马晓川 maxc@dustess.com
- * @LastEditTime: 2022-08-18
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-08-22
  * @Description: 
 -->
 <template>
@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-const Son = defineAsyncComponent(() => import("./Son.vue"));
 import Skeleton from "./Skeleton.vue";
+const Son = defineAsyncComponent(() => import("./Son.vue"));
 </script>
 
 <style lang="scss" scoped>

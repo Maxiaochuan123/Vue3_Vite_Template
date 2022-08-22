@@ -1,15 +1,15 @@
 <template>
-    <h4>B页面</h4>
+  <h4>B页面</h4>
 
-    <hr />
+  <hr />
 
-    <h4>接受来自路由的参数</h4>
-    <h4>姓名:{{ name }}</h4>
-    <h4>年龄:{{ age }}</h4>
+  <h4>接受来自路由的参数</h4>
+  <h4>姓名:{{ name }}</h4>
+  <h4>年龄:{{ age }}</h4>
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 
 const route = useRoute();
 

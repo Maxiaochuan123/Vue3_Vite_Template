@@ -106,7 +106,9 @@ const getDifferenceOfDays = (afterDate: string, beforeDate: string) => {
   const _beforeDate = dateToTimeStamp(strTrim(beforeDate, "LR"));
 
   // eslint-disable-next-line prettier/prettier
-  const differenceOfDays = Math.ceil(Math.abs((_afterDate - _beforeDate) / 86400000));
+  const differenceOfDays = Math.ceil(
+    Math.abs((_afterDate - _beforeDate) / 86400000)
+  );
   return differenceOfDays;
 };
 

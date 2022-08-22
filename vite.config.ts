@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
- * @LastEditors: 马晓川 maxc@dustess.com
- * @LastEditTime: 2022-08-18
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-08-22
  */
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
@@ -11,8 +11,10 @@ import { defineConfig, loadEnv } from "vite";
 // 自动引入 vue3 内置属性
 import AutoImport from "unplugin-auto-import/vite";
 
-// 动态按需引入 Element-Plus
+// 按需加载自定义组件
 import Components from "unplugin-vue-components/vite";
+
+// 动态按需引入 Element-Plus
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import ElementPlus from "unplugin-element-plus/vite";
 
