@@ -20,11 +20,11 @@ jobs:
           node-version: 16.15.0
           cache: 'pnpm'
       
-      # - name: 安装 pnpm
-      #   uses: pnpm/action-setup@v2.2.2
-      #   with:
-      #     version: 7.9.0
-      #     run_install: pnpm install
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.9.0
+          run_install: pnpm install
 
       # - run: pnpm ci
 
