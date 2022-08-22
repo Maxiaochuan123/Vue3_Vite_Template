@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getUser } from "@apis/public/index";
+import { getUser } from '@apis/public/index';
 
 // 使用 Record 来定义对象类型
 type ObjType = Record<string, object | string | number | Array<number>>;

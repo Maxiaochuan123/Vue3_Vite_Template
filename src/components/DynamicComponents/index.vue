@@ -18,28 +18,28 @@
 </template>
 
 <script lang="ts" setup>
-import A from "./A.vue";
-import B from "./B.vue";
-import C from "./C.vue";
+import A from './A.vue';
+import B from './B.vue';
+import C from './C.vue';
 
 type Tabs = {
   name: string;
   component: ReturnType<typeof defineComponent>;
 };
 
-type Component = Pick<Tabs, "component">;
+type Component = Pick<Tabs, 'component'>;
 
 const TabList = reactive<Tabs[]>([
   {
-    name: "组件A",
+    name: '组件A',
     component: markRaw(A)
   },
   {
-    name: "组件B",
+    name: '组件B',
     component: markRaw(B)
   },
   {
-    name: "组件C",
+    name: '组件C',
     component: markRaw(C)
   }
 ]);

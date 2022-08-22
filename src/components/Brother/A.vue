@@ -13,9 +13,9 @@
 //     instance?.proxy?.$mitt.emit('toBComponentParams', { name: 'zs', age: 18})
 // }
 
-import mitt from "@utils/mitt";
+import mitt from '@utils/mitt';
 
 const toParams = (): void => {
-  mitt.emit("toBComponentParams", { name: "zs", age: 18 });
+  mitt.emit('toBComponentParams', { name: 'zs', age: 18 });
 };
 </script>

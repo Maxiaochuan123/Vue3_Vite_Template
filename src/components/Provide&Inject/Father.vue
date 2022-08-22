@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts" setup>
-import Son from "./Son.vue";
-let ancestor = inject("ancestor");
+import Son from './Son.vue';
+let ancestor = inject('ancestor');
 </script>
 
 <style lang="scss" scoped>

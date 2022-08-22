@@ -9,16 +9,16 @@
  * @param {*} type L：左  R：右  LR：左右
  * @return {*}
  */
-const strTrim = (str: string, type: "L" | "R" | "LR" | "ALL") => {
+const strTrim = (str: string, type: 'L' | 'R' | 'LR' | 'ALL') => {
   switch (type) {
-    case "L":
-      return str.replace(/(^\s*)|(\s*$)/g, "");
-    case "R":
-      return str.replace(/(^\s*)/g, "");
-    case "LR":
-      return str.replace(/(\s*$)/g, "");
-    case "ALL":
-      return str.replace(/\s/g, "");
+    case 'L':
+      return str.replace(/(^\s*)|(\s*$)/g, '');
+    case 'R':
+      return str.replace(/(^\s*)/g, '');
+    case 'LR':
+      return str.replace(/(\s*$)/g, '');
+    case 'ALL':
+      return str.replace(/\s/g, '');
     default:
       return str;
   }

@@ -7,6 +7,6 @@
 </template>
 
 <script lang="ts" setup>
-import A from "./A.vue";
-import B from "./B.vue";
+import A from './A.vue';
+import B from './B.vue';
 </script>

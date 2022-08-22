@@ -10,13 +10,13 @@
 </template>
 
 <script lang="ts" setup>
-import Son from "./Son.vue";
+import Son from './Son.vue';
 
-let str = ref<string>("默认 str");
+let str = ref<string>('默认 str');
 let flag = ref<boolean>(false);
 
 const changeFlag = (): void => {
-  str.value = "嘻嘻嘻";
+  str.value = '嘻嘻嘻';
   flag.value = true;
 };
 </script>

@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import Son from "./Son.vue";
+import Son from './Son.vue';
 
-let name = ref<string>("");
+let name = ref<string>('');
 
 const changeName = (): void => {
-  name.value = "俺是恁爹";
+  name.value = '俺是恁爹';
 };
 
 const changeFatherMsg = (str: string): void => {

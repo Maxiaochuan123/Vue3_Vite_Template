@@ -14,7 +14,7 @@
 const superTypeof = (data: any): string => {
   const type: string = typeof data;
 
-  return type === "object"
+  return type === 'object'
     ? Object.prototype.toString.call(data).slice(8, -1).toUpperCase()
     : type;
 };
@@ -28,8 +28,8 @@ const dataIsEmpty = (data: any): boolean => {
   if (
     data === undefined ||
     data === null ||
-    data === "" ||
-    ((superTypeof(data) === "array" || superTypeof(data) === "object") &&
+    data === '' ||
+    ((superTypeof(data) === 'array' || superTypeof(data) === 'object') &&
       Object.keys(data).length === 0)
   ) {
     return true;

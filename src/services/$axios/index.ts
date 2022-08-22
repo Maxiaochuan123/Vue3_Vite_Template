@@ -4,14 +4,14 @@
  * @LastEditors: 马晓川 maxc@dustess.com
  * @LastEditTime: 2022-08-16
  */
-import axios from "axios";
-import qs from "qs";
-import errorCode from "./errorCode";
+import axios from 'axios';
+import qs from 'qs';
+import errorCode from './errorCode';
 
-import { ElMessage } from "element-plus";
+import { ElMessage } from 'element-plus';
 
 // import { showLoading, closeLoading } from "./loading";
-import PageLaodingBar from "@plugins/pageLoadingBar";
+import PageLaodingBar from '@plugins/pageLoadingBar';
 
 // axios 配置 https://www.axios-http.cn/docs/req_config
 
@@ -19,7 +19,7 @@ const $axios = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
   withCredentials: true, //跨域是否允许携带凭证
   headers: {
-    "Content-Type": "application/json;charset=utf-8" //请求头设置
+    'Content-Type': 'application/json;charset=utf-8' //请求头设置
   },
   transformRequest: (data) => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
@@ -31,9 +31,9 @@ $axios.interceptors.request.use(
     // showLoading();
     PageLaodingBar.start();
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
 
-    if (token) config.headers!["Authorization"] = `Bearer ${token}`;
+    if (token) config.headers!['Authorization'] = `Bearer ${token}`;
 
     return config;
   },
@@ -49,10 +49,10 @@ $axios.interceptors.response.use(
     PageLaodingBar.done();
 
     // 默认成功状态码
-    const code: number = res.data["code"] || 200;
+    const code: number = res.data['code'] || 200;
 
     // 获取错误信息
-    const errorMsg = errorCode(code) || res.data["message"];
+    const errorMsg = errorCode(code) || res.data['message'];
 
     if (code === 200) {
       return Promise.resolve(res.data);
@@ -70,12 +70,12 @@ $axios.interceptors.response.use(
     let { message } = error;
 
     if (response) {
-      if (message == "Network Error") {
-        message = "后端接口连接异常";
-      } else if (message.includes("timeout")) {
-        message = "系统接口请求超时";
-      } else if (message.includes("Request failed with status code")) {
-        message = "系统接口" + message.substr(message.length - 3) + "异常";
+      if (message == 'Network Error') {
+        message = '后端接口连接异常';
+      } else if (message.includes('timeout')) {
+        message = '系统接口请求超时';
+      } else if (message.includes('Request failed with status code')) {
+        message = '系统接口' + message.substr(message.length - 3) + '异常';
       }
       ElMessage.error(message);
     } else {

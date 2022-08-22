@@ -12,9 +12,9 @@
 //     console.log('数据来自 A组件', params);
 // })
 
-import mitt from "@utils/mitt";
+import mitt from '@utils/mitt';
 
-mitt.on("toBComponentParams", (params: any): void => {
-  console.log("数据来自 A组件", params);
+mitt.on('toBComponentParams', (params: any): void => {
+  console.log('数据来自 A组件', params);
 });
 </script>

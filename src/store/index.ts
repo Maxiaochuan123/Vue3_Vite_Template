@@ -5,15 +5,15 @@
  * @LastEditTime: 2022-08-22
  * @Description:
  */
-import { defineStore } from "pinia";
-import type { useMainStoreInterFace } from "./interface";
+import { defineStore } from 'pinia';
+import type { useMainStoreInterFace } from './interface';
 
-export const useMainStore = defineStore("main", {
+export const useMainStore = defineStore('main', {
   // 类似组件的 data, 用来存储全局状态
   state: (): useMainStoreInterFace => ({
     count: 100,
     info: {
-      name: "zs",
+      name: 'zs',
       age: 18
     }
   }),

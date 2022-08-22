@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-08-06
  */
 
-import { strTrim } from "@utils/character";
+import { strTrim } from '@utils/character';
 
 /**
  * @description: 日期项单位补0
@@ -22,8 +22,8 @@ const formatterDateItem = (item: number): number | string => {
  * @param {*} dateType 日期类型：默认当前日期
  * @return {*}
  */
-const getDateType = (date = "current") => {
-  return date === "current" ? new Date() : new Date(date);
+const getDateType = (date = 'current') => {
+  return date === 'current' ? new Date() : new Date(date);
 };
 
 /**
@@ -48,7 +48,7 @@ const getDateItem = (date: Date | number) => {
  * @param {*} separator 分隔符
  * @return {*} string
  */
-const getDate = (dateType = "current", separator = "-"): string => {
+const getDate = (dateType = 'current', separator = '-'): string => {
   const data = getDateType(dateType);
   const { YYYY, MM, DD } = getDateItem(data);
   return `${YYYY}${separator}${MM}${separator}${DD}`;
@@ -59,7 +59,7 @@ const getDate = (dateType = "current", separator = "-"): string => {
  * @param {*} dateType 日期类型：默认当前日期
  * @return {string}
  */
-const getTime = (dateType = "current"): string => {
+const getTime = (dateType = 'current'): string => {
   const data = getDateType(dateType);
   const { HH, mm, ss } = getDateItem(data);
   return `${HH}:${mm}:${ss}`;
@@ -70,7 +70,7 @@ const getTime = (dateType = "current"): string => {
  * @param {*} dateType 日期类型：默认当前日期
  * @return {*} number
  */
-const dateToTimeStamp = (dateType = "current"): number => {
+const dateToTimeStamp = (dateType = 'current'): number => {
   const data = getDateType(dateType);
   return data.getTime();
 };
@@ -85,7 +85,7 @@ const dateToTimeStamp = (dateType = "current"): number => {
 const timeStampToDateStr = (
   timeStamp: number,
   isFullDate = true,
-  separator = "-"
+  separator = '-'
 ): string => {
   const { YYYY, MM, DD, HH, mm, ss } = getDateItem(timeStamp);
 
@@ -102,8 +102,8 @@ const timeStampToDateStr = (
  * @return {*}
  */
 const getDifferenceOfDays = (afterDate: string, beforeDate: string) => {
-  const _afterDate = dateToTimeStamp(strTrim(afterDate, "LR"));
-  const _beforeDate = dateToTimeStamp(strTrim(beforeDate, "LR"));
+  const _afterDate = dateToTimeStamp(strTrim(afterDate, 'LR'));
+  const _beforeDate = dateToTimeStamp(strTrim(beforeDate, 'LR'));
 
   // eslint-disable-next-line prettier/prettier
   const differenceOfDays = Math.ceil(

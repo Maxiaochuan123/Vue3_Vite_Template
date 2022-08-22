@@ -12,21 +12,21 @@ import {
   ElConfigProvider,
   locale,
   size
-} from "@/plugins/elementPlusGlobalConfig";
+} from '@/plugins/elementPlusGlobalConfig';
 
 // 测试组件
-import Pinia from "@components/Pinia/index.vue";
-import ToRef_ToRefs from "@components/ToRef&ToRefs/index.vue";
-import DynamicComponents from "@components/DynamicComponents/index.vue";
-import Slot from "@components/Slot/index.vue";
-import FatherAndSon from "@components/FatherAndSon/Father.vue";
-import Brother from "@components/Brother/index.vue";
-import DynamicCss from "@components/DynamicCss/jsStyle.vue";
-import VModel from "@components/V-Model/Father.vue";
-import Axios from "@components/Axios/index.vue";
-import ElementUI from "@components/ElementUI/index.vue";
-import Provide_Inject from "@components/Provide&Inject/index.vue";
-import MySuspense from "@components/Suspense/index.vue";
+import Pinia from '@components/Pinia/index.vue';
+import ToRef_ToRefs from '@components/ToRef&ToRefs/index.vue';
+import DynamicComponents from '@components/DynamicComponents/index.vue';
+import Slot from '@components/Slot/index.vue';
+import FatherAndSon from '@components/FatherAndSon/Father.vue';
+import Brother from '@components/Brother/index.vue';
+import DynamicCss from '@components/DynamicCss/jsStyle.vue';
+import VModel from '@components/V-Model/Father.vue';
+import Axios from '@components/Axios/index.vue';
+import ElementUI from '@components/ElementUI/index.vue';
+import Provide_Inject from '@components/Provide&Inject/index.vue';
+import MySuspense from '@components/Suspense/index.vue';
 </script>
 
 <template>

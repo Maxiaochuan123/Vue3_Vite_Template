@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-08-08
  * @Description: Storage 封装
  */
-import { dataIsEmpty } from "./judge";
+import { dataIsEmpty } from './judge';
 
 interface StorageType {
   local: Storage;
@@ -30,7 +30,7 @@ const storageSetItem = (type: string, key: string, item: any) => {
 };
 
 const formatterItem = (item: any): any => {
-  if (dataIsEmpty(item)) throw new Error("当前值是空, 请检查~");
+  if (dataIsEmpty(item)) throw new Error('当前值是空, 请检查~');
 
   if (isRef(item)) {
     return item.value;

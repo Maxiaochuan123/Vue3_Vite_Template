@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from "pinia";
-import { useMainStore } from "@store/index";
-import { storageSetItem, storageGetItem } from "@utils/storage";
+import { storeToRefs } from 'pinia';
+import { useMainStore } from '@store/index';
+import { storageSetItem, storageGetItem } from '@utils/storage';
 // storageSetItem()
 const mainStore = useMainStore();
 const { count, info, countGetter } = storeToRefs(mainStore);
@@ -36,7 +36,7 @@ const handleChangeState = () => {
 
   mainStore.$patch((state) => {
     state.count++;
-    state.info.name = "老马~";
+    state.info.name = '老马~';
     state.info.age = 18;
   });
 };
@@ -47,15 +47,15 @@ interface ProductsInterFace {
 }
 const products: ProductsInterFace[] = [
   {
-    name: "a",
+    name: 'a',
     price: 1
   },
   {
-    name: "b",
+    name: 'b',
     price: 2
   },
   {
-    name: "c",
+    name: 'c',
     price: 3
   }
 ];

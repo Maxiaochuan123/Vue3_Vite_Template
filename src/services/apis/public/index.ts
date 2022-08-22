@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-08-16
  */
 
-import $axios from "@/services/$axios";
+import $axios from '@/services/$axios';
 
 export const getUser = () => {
-  return $axios.get("/m1/1300842-0-default/pet/1").then((res) => res.data);
+  return $axios.get('/m1/1300842-0-default/pet/1').then((res) => res.data);
 };

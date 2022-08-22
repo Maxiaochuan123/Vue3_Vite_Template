@@ -4,22 +4,22 @@
  * @LastEditors: 马晓川 724503670@qq.com
  * @LastEditTime: 2022-08-22
  */
-import vue from "@vitejs/plugin-vue";
-import { resolve } from "path";
-import { defineConfig, loadEnv } from "vite";
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import { defineConfig, loadEnv } from 'vite';
 
 // 自动引入 vue3 内置属性
-import AutoImport from "unplugin-auto-import/vite";
+import AutoImport from 'unplugin-auto-import/vite';
 
 // 按需加载自定义组件
-import Components from "unplugin-vue-components/vite";
+import Components from 'unplugin-vue-components/vite';
 
 // 动态按需引入 Element-Plus
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import ElementPlus from "unplugin-element-plus/vite";
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import ElementPlus from 'unplugin-element-plus/vite';
 
 // 打包可视化分析工具 rollup-plugin-visualizer
-import { visualizer } from "rollup-plugin-visualizer";
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => {
       vue(),
       AutoImport({
         // 自动引入 vue3 内置属性
-        imports: ["vue"],
-        dts: "src/auto-import.d.ts",
+        imports: ['vue'],
+        dts: 'src/auto-import.d.ts',
 
         // 动态按需引入 element-plus (1)
         resolvers: [ElementPlusResolver()]
@@ -44,13 +44,13 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
-        "@": resolve(__dirname, "src"),
-        "@assets": resolve(__dirname, "src/assets"),
-        "@plugins": resolve(__dirname, "src/plugins"),
-        "@apis": resolve(__dirname, "src/services/apis"),
-        "@utils": resolve(__dirname, "src/utils"),
-        "@store": resolve(__dirname, "src/store"),
-        "@components": resolve(__dirname, "src/components")
+        '@': resolve(__dirname, 'src'),
+        '@assets': resolve(__dirname, 'src/assets'),
+        '@plugins': resolve(__dirname, 'src/plugins'),
+        '@apis': resolve(__dirname, 'src/services/apis'),
+        '@utils': resolve(__dirname, 'src/utils'),
+        '@store': resolve(__dirname, 'src/store'),
+        '@components': resolve(__dirname, 'src/components')
       }
     },
     css: {
@@ -67,17 +67,17 @@ export default defineConfig(({ mode }) => {
       //     port: 8080,
       //   },
       proxy: {
-        "/m1": {
-          target: "http://127.0.0.1:4523/",
+        '/m1': {
+          target: 'http://127.0.0.1:4523/',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/m1/, "")
+          rewrite: (path) => path.replace(/^\/m1/, '')
         }
       },
       open: true, // 服务启动时是否自动打开浏览器
       cors: true // 允许跨域
     },
     esbuild: {
-      pure: ["console.log", "debugger"] //打包去除
+      pure: ['console.log', 'debugger'] //打包去除
     }
   };
 });

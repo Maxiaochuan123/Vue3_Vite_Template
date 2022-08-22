@@ -45,21 +45,21 @@ interface IRootInterface {
 
 const data = reactive<IRootInterface>({
   people: {
-    name: "zs",
+    name: 'zs',
     age: 18,
     hobby: {
-      food: "米饭",
-      motion: "跑步"
+      food: '米饭',
+      motion: '跑步'
     }
   }
 });
 
 // toRef
-const age = toRef(data.people, "age");
-const food = toRef(data.people.hobby, "food");
+const age = toRef(data.people, 'age');
+const food = toRef(data.people.hobby, 'food');
 const handleChange = (): void => {
   age.value = 22;
-  food.value = "面条";
+  food.value = '面条';
   console.log(age.value, food.value);
 };
 // // toRefs

@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -22,9 +22,9 @@ const goPage = (): void => {
   // params 时参数不会在地址栏展示, 只能配合 name 使用, 由于参数是存在内存中的, 所以刷新会丢失
   // params 时参数丢失问题 可以使用动态路由参数解决, 且动态路由传参 不能不带参直接进入页面, 必须带参数才能进入
   router.push({
-    name: "b",
+    name: 'b',
     params: {
-      name: "zs",
+      name: 'zs',
       age: 18
     }
   });

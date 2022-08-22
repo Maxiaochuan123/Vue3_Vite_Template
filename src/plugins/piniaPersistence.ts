@@ -5,10 +5,10 @@
  * @LastEditTime: 2022-08-16
  * @Description:
  */
-import { PiniaPluginContext } from "pinia";
-import { storageSetItem, storageGetItem } from "../utils/storage";
+import { PiniaPluginContext } from 'pinia';
+import { storageSetItem, storageGetItem } from '../utils/storage';
 
-const _piniaKey_ = "pinia";
+const _piniaKey_ = 'pinia';
 
 const piniaPersistence = () => {
   return (context: PiniaPluginContext) => {
@@ -16,10 +16,10 @@ const piniaPersistence = () => {
     const storeKey = `${_piniaKey_}-${store.$id}`;
 
     store.$subscribe(() => {
-      storageSetItem("local", storeKey, store.$state);
+      storageSetItem('local', storeKey, store.$state);
     });
 
-    const storagePiniaData = storageGetItem("local", storeKey);
+    const storagePiniaData = storageGetItem('local', storeKey);
 
     return { ...storagePiniaData };
   };

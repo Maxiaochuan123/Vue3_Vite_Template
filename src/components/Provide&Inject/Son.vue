@@ -17,11 +17,11 @@
 </template>
 
 <script lang="ts" setup>
-let ancestor: string[] = inject("ancestor") as string[];
+let ancestor: string[] = inject('ancestor') as string[];
 const changeAncestor = () => {
-  ancestor[0] = "c";
-  ancestor[1] = "d";
-  ancestor.push("e");
+  ancestor[0] = 'c';
+  ancestor[1] = 'd';
+  ancestor.push('e');
 };
 </script>
 

@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import Slot from "./Slot.vue";
+import Slot from './Slot.vue';
 
-let slotName = "header";
+let slotName = 'header';
 </script>
