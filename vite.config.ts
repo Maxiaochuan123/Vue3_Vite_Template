@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
           {
             name: 'vue',
             var: 'Vue',
-            path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.esm-bundler.min.js'
+            path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.esm-browser.prod.min.js'
           },
           {
             name: 'vue-router',
