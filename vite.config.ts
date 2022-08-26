@@ -71,6 +71,15 @@ export default defineConfig(({ mode }) => {
         ]
       })
     ],
+    output: {
+      format: 'es',
+      globals: {
+        vue: 'Vue',
+        'vue-router': 'VueRouter',
+        'element-plus': 'ElementPlus',
+        qs: 'Qs'
+      }
+    },
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
