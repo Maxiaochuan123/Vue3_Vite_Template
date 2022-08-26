@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-07-16
  * @Author: 马晓川 maxc@dustess.com
- * @LastEditors: 马晓川 maxc@dustess.com
- * @LastEditTime: 2022-08-16
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-08-23
  */
 import axios from 'axios';
 import qs from 'qs';
@@ -17,7 +17,7 @@ import PageLaodingBar from '@plugins/pageLoadingBar';
 
 const $axios = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
-  withCredentials: true, //跨域是否允许携带凭证
+  // withCredentials: true, //跨域是否允许携带凭证
   headers: {
     'Content-Type': 'application/json;charset=utf-8' //请求头设置
   },

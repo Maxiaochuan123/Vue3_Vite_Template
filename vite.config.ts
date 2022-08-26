@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-22
+ * @LastEditTime: 2022-08-26
  */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
@@ -20,6 +20,9 @@ import ElementPlus from 'unplugin-element-plus/vite';
 
 // 打包可视化分析工具 rollup-plugin-visualizer
 import { visualizer } from 'rollup-plugin-visualizer';
+
+// 生产环境资源 CDN 引入
+import importToCDN from 'vite-plugin-cdn-import';
 
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
@@ -40,7 +43,31 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
-      visualizer()
+      visualizer(),
+      importToCDN({
+        modules: [
+          {
+            name: 'vue',
+            var: 'Vue',
+            path: 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.global.prod.min.js'
+          },
+          {
+            name: 'vue-router',
+            var: 'VueRouter',
+            path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.1.3/vue-router.global.prod.min.js'
+          },
+          {
+            name: 'element-plus',
+            var: 'ElementPlus',
+            path: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.13/index.full.min.js'
+          },
+          {
+            name: 'qs',
+            var: 'Qs',
+            path: 'https://cdn.bootcdn.net/ajax/libs/qs/6.11.0/qs.min.js'
+          }
+        ]
+      })
     ],
     resolve: {
       alias: {
@@ -61,17 +88,18 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
-      //   port: 8080, //启动端口
-      //   hmr: {
-      //     host: "127.0.0.1",
-      //     port: 8080,
-      //   },
+      port: 8080, //启动端口
       proxy: {
         '/m1': {
           target: 'http://127.0.0.1:4523/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/m1/, '')
         }
+        // '/api': {
+        //   target: 'http://localhost:3000/',
+        //   changeOrigin: true,
+        //   rewrite: (path) => path.replace(/^\/api/, '')
+        // }
       },
       open: true, // 服务启动时是否自动打开浏览器
       cors: true // 允许跨域

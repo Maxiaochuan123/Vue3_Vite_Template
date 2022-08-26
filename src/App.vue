@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-22
+ * @LastEditTime: 2022-08-23
  * @Description: 
 -->
 
@@ -32,7 +32,6 @@ import MySuspense from '@components/Suspense/index.vue';
 <template>
   <ElConfigProvider :size="size" :locale="locale">
     <img alt="Vue logo" src="@assets/logo.png" />
-    <h4>pnpm 缓存优化2</h4>
     <!-- 配合 Router 组件打开 -->
     <!-- <router-view /> -->
 
@@ -45,9 +44,9 @@ import MySuspense from '@components/Suspense/index.vue';
     <!-- <Brother /> -->
     <!-- <VModel /> -->
     <!-- <DynamicCss /> -->
-    <!-- <Axios /> -->
+    <Axios />
     <!-- <ElementUI /> -->
-    <Provide_Inject />
+    <!-- <Provide_Inject /> -->
     <!-- <MySuspense /> -->
   </ElConfigProvider>
 </template>

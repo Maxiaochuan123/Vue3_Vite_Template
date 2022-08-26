@@ -1,8 +1,8 @@
 <!--
  * @Date: 2022-07-17
  * @Author: 马晓川 maxc@dustess.com
- * @LastEditors: 马晓川 maxc@dustess.com
- * @LastEditTime: 2022-08-16
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-08-26
  * @Description: 
 -->
 <template>
@@ -12,18 +12,19 @@
 </template>
 
 <script lang="ts" setup>
-import { getUser } from '@apis/public/index';
+// import { getUsers } from '@apis/public/index';
 
 // 使用 Record 来定义对象类型
 type ObjType = Record<string, object | string | number | Array<number>>;
 let source = reactive<ObjType>({ list: {} });
 
-onMounted(async () => {
-  setUserList();
-});
+// onMounted(async () => {
+//   setUserList();
+// });
 
 const setUserList = async () => {
-  const data = await getUser();
-  source.list = data;
+  // const data = await getUsers();
+  // console.log(data);
+  // source.list = data;
 };
 </script>
