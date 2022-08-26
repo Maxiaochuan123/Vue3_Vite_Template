@@ -23,6 +23,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // 生产环境资源 CDN 引入
 // import importToCDN from 'vite-plugin-cdn-import';
+import commonjs from 'rollup-plugin-commonjs';
 import externalGlobals from 'rollup-plugin-external-globals';
 
 export default defineConfig(({ mode }) => {
@@ -112,6 +113,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         external: ['vue', 'vue-router', 'element-plus', 'qs'],
         plugins: [
+          commonjs(),
           externalGlobals({
             vue: 'Vue',
             'vue-router': 'VueRouter',
