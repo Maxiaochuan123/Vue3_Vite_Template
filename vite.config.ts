@@ -23,6 +23,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // 生产环境资源 CDN 引入
 import importToCDN from 'vite-plugin-cdn-import';
+
 // import commonjs from 'rollup-plugin-commonjs';
 // import externalGlobals from 'rollup-plugin-external-globals';
 
@@ -48,11 +49,6 @@ export default defineConfig(({ mode }) => {
       visualizer(),
       importToCDN({
         modules: [
-          {
-            name: 'vue-demi',
-            var: 'VueDemi',
-            path: 'https://cdn.bootcdn.net/ajax/libs/vue-demi/0.13.7/index.iife.min.js'
-          },
           {
             name: 'vue',
             var: 'Vue',
@@ -103,11 +99,6 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/m1/, '')
         }
-        // '/api': {
-        //   target: 'http://localhost:3000/',
-        //   changeOrigin: true,
-        //   rewrite: (path) => path.replace(/^\/api/, '')
-        // }
       },
       open: true, // 服务启动时是否自动打开浏览器
       cors: true // 允许跨域
