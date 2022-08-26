@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-23
+ * @LastEditTime: 2022-08-26
  * @Description: 
 -->
 
@@ -33,7 +33,7 @@ import MySuspense from '@components/Suspense/index.vue';
   <ElConfigProvider :size="size" :locale="locale">
     <img alt="Vue logo" src="@assets/logo.png" />
     <!-- 配合 Router 组件打开 -->
-    <!-- <router-view /> -->
+    <router-view />
 
     <!-- <Pinia /> -->
     <!-- <ToRef_ToRefs /> -->
