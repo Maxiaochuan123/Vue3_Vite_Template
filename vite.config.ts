@@ -22,9 +22,9 @@ import ElementPlus from 'unplugin-element-plus/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 // 生产环境资源 CDN 引入
-// import importToCDN from 'vite-plugin-cdn-import';
-import commonjs from 'rollup-plugin-commonjs';
-import externalGlobals from 'rollup-plugin-external-globals';
+import importToCDN from 'vite-plugin-cdn-import';
+// import commonjs from 'rollup-plugin-commonjs';
+// import externalGlobals from 'rollup-plugin-external-globals';
 
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
@@ -45,31 +45,37 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
-      visualizer()
-      // importToCDN({
-      //   modules: [
-      //     {
-      //       name: 'vue',
-      //       var: 'Vue',
-      //       path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.global.prod.min.js'
-      //     },
-      //     {
-      //       name: 'vue-router',
-      //       var: 'VueRouter',
-      //       path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.1.3/vue-router.global.prod.min.js'
-      //     },
-      //     {
-      //       name: 'element-plus',
-      //       var: 'ElementPlus',
-      //       path: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.13/index.full.min.js'
-      //     },
-      //     {
-      //       name: 'qs',
-      //       var: 'Qs',
-      //       path: 'https://cdn.bootcdn.net/ajax/libs/qs/6.11.0/qs.min.js'
-      //     }
-      //   ]
-      // })
+      visualizer(),
+      importToCDN({
+        modules: [
+          {
+            name: 'vue-demi',
+            var: 'VueDemi',
+            path: 'https://cdn.bootcdn.net/ajax/libs/vue-demi/0.13.7/index.iife.min.js'
+          },
+          {
+            name: 'vue',
+            var: 'Vue',
+            path: 'https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.global.prod.min.js'
+          },
+          {
+            name: 'vue-router',
+            var: 'VueRouter',
+            path: 'https://cdn.bootcdn.net/ajax/libs/vue-router/4.1.3/vue-router.global.prod.min.js'
+          },
+          {
+            name: 'element-plus',
+            var: 'ElementPlus',
+            path: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.13/index.full.min.js',
+            css: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.13/index.min.css'
+          },
+          {
+            name: 'qs',
+            var: 'Qs',
+            path: 'https://cdn.bootcdn.net/ajax/libs/qs/6.11.0/qs.min.js'
+          }
+        ]
+      })
     ],
     resolve: {
       alias: {
@@ -108,20 +114,20 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       pure: ['console.log', 'debugger'] //打包去除
-    },
-    build: {
-      rollupOptions: {
-        external: ['vue', 'vue-router', 'element-plus', 'qs'],
-        plugins: [
-          commonjs(),
-          externalGlobals({
-            vue: 'Vue',
-            'vue-router': 'VueRouter',
-            'element-plus': 'ElementPlus',
-            qs: 'Qs'
-          })
-        ]
-      }
     }
+    // build: {
+    //   rollupOptions: {
+    //     external: ['vue', 'vue-router', 'element-plus', 'qs'],
+    //     plugins: [
+    //       commonjs(),
+    //       externalGlobals({
+    //         vue: 'Vue',
+    //         'vue-router': 'VueRouter',
+    //         'element-plus': 'ElementPlus',
+    //         qs: 'Qs'
+    //       })
+    //     ]
+    //   }
+    // }
   };
 });
