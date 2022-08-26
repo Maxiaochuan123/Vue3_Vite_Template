@@ -29,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
     "@vueuse/core": "^9.1.1",
     "axios": "0.27.2",
     "element-plus": "^2.2.14",

@@ -23,6 +23,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // 生产环境资源 CDN 引入
 import importToCDN from 'vite-plugin-cdn-import';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
@@ -44,6 +45,7 @@ export default defineConfig(({ mode }) => {
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
       visualizer(),
+      commonjs(),
       importToCDN({
         modules: [
           {
