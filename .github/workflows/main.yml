@@ -1,8 +1,8 @@
 name: 打包应用并上传到云服务器
 
 on:
-      push:
-        branches: "master"
+  push:
+    branches: "master"
 
 jobs:
   cache-and-install:
