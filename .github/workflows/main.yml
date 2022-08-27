@@ -5,7 +5,7 @@ on:
     branches: "master"
 
 jobs:
-  cache-and-install:
+  install:
 
     # 任务运行所需要的虚拟机环境(必填)
     runs-on: ubuntu-latest
