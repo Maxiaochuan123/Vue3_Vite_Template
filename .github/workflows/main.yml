@@ -16,7 +16,7 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_IMAGE}} .
 
       - name: Login to Tencent cloud container image service # 登录腾讯云容器镜像服务
-        run: docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }}  --password=${{ secrets.DOCKER_PASSWORD }}
+        run: docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: build Tencent cloud container image tag # 将镜像进行构建并打包成 腾讯云镜像 tag
         run: docker tag ${{ secrets.DOCKER_IMAGE}} ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG}}
@@ -40,16 +40,16 @@ jobs:
             docker stop ${{ secrets.DOCKER_IMAGE}}
 
             # 删除旧版容器
-            docker rm ${{ secrets.DOCKER_IMAGE}}
+            docker rm ${{ secrets.DOCKER_IMAGE}}:latest
 
             # 删除旧版镜像
-            docker rmi ${{ secrets.DOCKER_IMAGE}}
+            docker rmi ${{ secrets.DOCKER_IMAGE}}:latest
 
             # 登录腾讯云容器镜像服务
-            docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }}  --password=${{ secrets.DOCKER_PASSWORD }}
+            docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
             # 拉取镜像
-            docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG}}
+            docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG}}:latest
 
             # 运行镜像
-            docker run -d -p 8000:80 ${{ secrets.DOCKER_IMAGE}}
+            docker run -d -p 8000:80 ${{ secrets.DOCKER_IMAGE}}:latest
