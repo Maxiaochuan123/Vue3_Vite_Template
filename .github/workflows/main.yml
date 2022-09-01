@@ -40,16 +40,16 @@ jobs:
             docker stop ${{ secrets.DOCKER_IMAGE }}
 
             # 删除旧版容器
-            docker rm ${{ secrets.DOCKER_IMAGE }}:latest
+            docker rm ${{ secrets.DOCKER_IMAGE }}
 
             # 删除旧版镜像
-            docker rmi ${{ secrets.DOCKER_IMAGE }}:latest
+            docker rmi ${{ secrets.DOCKER_IMAGE }}
 
             # 登录腾讯云容器镜像服务
             docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
             
             # 拉取镜像
-            docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}:latest
+            docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
 
             # 运行镜像
-            docker run -d -p 8000:80 ${{ secrets.DOCKER_IMAGE }}:latest
+            docker run -d -p 8000:80 ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
