@@ -52,4 +52,4 @@ jobs:
             docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
 
             # 运行镜像
-            docker run -d -p 8000:80 ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
+            docker run -d -p 8000:80 --name vue-app-container ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
