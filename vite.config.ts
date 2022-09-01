@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-27
+ * @LastEditTime: 2022-08-28
  */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
@@ -92,16 +92,17 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
-      port: 8080, //启动端口
+      host: '0.0.0.0',
+      port: 3000, //启动端口
+      open: true, // 服务启动时是否自动打开浏览器
+      cors: true, // 允许跨域
       proxy: {
         '/m1': {
           target: 'http://127.0.0.1:4523/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/m1/, '')
         }
-      },
-      open: true, // 服务启动时是否自动打开浏览器
-      cors: true // 允许跨域
+      }
     },
     esbuild: {
       pure: ['console.log', 'debugger'] //打包去除

@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     C: typeof import('./src/components/DynamicComponents/C.vue')['default']
     DynamicComponents: typeof import('./src/components/DynamicComponents/index.vue')['default']
     DynamicCss: typeof import('./src/components/DynamicCss/index.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElementUI: typeof import('./src/components/ElementUI/index.vue')['default']
     Father: typeof import('./src/components/FatherAndSon/Father.vue')['default']
     JsStyle: typeof import('./src/components/DynamicCss/jsStyle.vue')['default']
