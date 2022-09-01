@@ -43,7 +43,7 @@ jobs:
             docker rm ${{ secrets.DOCKER_CONTAINER }}
 
             # 删除旧版镜像
-            docker rmi ${{ secrets.DOCKER_IMAGE }}
+            docker rmi ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
 
             # 登录腾讯云容器镜像服务
             docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
