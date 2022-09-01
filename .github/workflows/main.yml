@@ -18,8 +18,8 @@ jobs:
       - name: Login to Tencent cloud container image service # 登录腾讯云容器镜像服务
         run: docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
-      # - name: build Tencent cloud container image tag # 将镜像进行构建并打包成 腾讯云镜像 tag
-      #   run: docker tag ${{ secrets.DOCKER_IMAGE }} ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
+      - name: build Tencent cloud container image tag # 将镜像进行构建并打包成 腾讯云镜像 tag
+        run: docker tag ${{ secrets.DOCKER_IMAGE }} ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
 
       - name: push docker image # 推送 docker 镜像
         run: docker push ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE }}
