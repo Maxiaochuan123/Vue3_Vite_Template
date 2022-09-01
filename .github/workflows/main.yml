@@ -37,10 +37,10 @@ jobs:
           host:  ${{ secrets.REMOTE_HOST }}
           script: |
             # 停止旧版容器
-            docker stop ${{ secrets.DOCKER_IMAGE }}
+            docker stop ${{ secrets.DOCKER_CONTAINER }}
 
             # 删除旧版容器
-            docker rm ${{ secrets.DOCKER_IMAGE }}
+            docker rm ${{ secrets.DOCKER_CONTAINER }}
 
             # 删除旧版镜像
             docker rmi ${{ secrets.DOCKER_IMAGE }}
