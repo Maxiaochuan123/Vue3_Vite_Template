@@ -4,12 +4,6 @@ FROM node:16.17.0-alpine as builder
 # 为后续命令指定运行的工作目录
 WORKDIR /vueApp
 
-# 当前目录所有文件 copy 到工作目录
-COPY . .
-
-# 单独分离 package.json, pnpm-lock.yaml 是为了安装依赖可最大限度利用缓存
-COPY package.json pnpm-lock.yaml /vueApp/
-
 # 安装 pnpm
 RUN npm install pnpm -g
 
@@ -24,8 +18,14 @@ RUN pnpm config set registry https://mirrors.cloud.tencent.com/npm/
 # # 3. node-sass 能通过 SASS_BINARY_PATH 自行配置路径，所以将路径指向创建的目录
 # ENV SASS_BINARY_PATH /vueApp/node-sass/binding.node
 
+# 单独分离 package.json, pnpm-lock.yaml 是为了安装依赖可最大限度利用缓存，当这两个文件没有发生变化，将不重新安装依赖
+COPY package.json pnpm-lock.yaml /vueApp/
+
 # 安装依赖
 RUN pnpm install
+
+# 当前目录所有文件 copy 到工作目录
+COPY . /vueApp
 
 # 打包
 RUN pnpm build:prod
