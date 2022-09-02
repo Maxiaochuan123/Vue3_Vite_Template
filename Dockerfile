@@ -7,6 +7,9 @@ WORKDIR /vueApp
 # 当前目录所有文件 copy 到工作目录
 COPY . .
 
+# 单独分离 package.json, pnpm-lock.yaml 是为了安装依赖可最大限度利用缓存
+COPY package.json pnpm-lock.yaml /vueApp/
+
 # 安装 pnpm
 RUN npm install pnpm -g
 
@@ -32,3 +35,6 @@ FROM nginx:1.22.0-alpine
 
 # 将 node builder 阶段得到的 dist 下的文件拷贝到 nginx/html 中
 COPY --from=builder /vueApp/dist /usr/share/nginx/html
+
+# nginx.conf 配置了 80 端口，所以这里没有上传 nginx.conf，如果你有其他详细配置，则可以上传 nginx.conf 覆盖 服务端的 nginx.conf
+# nginx 默认启动 80 端口, 如果是其他端口则需要 导出端口 EXPOSE 3000
