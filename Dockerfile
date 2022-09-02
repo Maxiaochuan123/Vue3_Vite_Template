@@ -10,8 +10,8 @@ COPY . .
 # 安装 pnpm
 RUN npm install pnpm -g
 
-# 切换淘宝镜像
-RUN pnpm config set registry https://registry.npmmirror.com
+# 切换腾讯镜像源
+RUN pnpm config set registry https://mirrors.cloud.tencent.com/npm/
 
 # # 由于 node-sass 报错 无法下载 linux_musl-x64-93_binding.node，所以自行下载并完成下面 3步
 # # 1.创建 node-sass 目录
