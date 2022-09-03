@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-28
+ * @LastEditTime: 2022-09-03
  */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
@@ -27,6 +27,9 @@ import { visualizer } from 'rollup-plugin-visualizer';
 // import commonjs from 'rollup-plugin-commonjs';
 // import externalGlobals from 'rollup-plugin-external-globals';
 
+// gzip 静态资源压缩
+import viteCompression from 'vite-plugin-compression';
+
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
 
@@ -46,7 +49,7 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
-      visualizer()
+      visualizer(),
       // importToCDN({
       //   modules: [
       //     {
@@ -72,6 +75,13 @@ export default defineConfig(({ mode }) => {
       //     }
       //   ]
       // })
+      viteCompression({
+        verbose: true,
+        disable: false,
+        threshold: 10240,
+        algorithm: 'gzip',
+        ext: '.gz'
+      })
     ],
     resolve: {
       alias: {
@@ -106,20 +116,39 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       pure: ['console.log', 'debugger'] //打包去除
+    },
+    build: {
+      rollupOptions: {
+        // external: ['vue', 'vue-router', 'element-plus', 'qs'],
+        // plugins: [
+        //   commonjs(),
+        //   externalGlobals({
+        //     vue: 'Vue',
+        //     'vue-router': 'VueRouter',
+        //     'element-plus': 'ElementPlus',
+        //     qs: 'Qs'
+        //   })
+        // ]
+
+        // 静态资源合并打包
+        output: {
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+
+          // 超大静态资源拆分
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return id
+                .toString()
+                .split('node_modules/')[1]
+                .split('/')[0]
+                .toString();
+            }
+          }
+        }
+      },
+      chunkSizeWarningLimit: 1500 // 资源超出限制警告门槛 1.5mb
     }
-    // build: {
-    //   rollupOptions: {
-    //     external: ['vue', 'vue-router', 'element-plus', 'qs'],
-    //     plugins: [
-    //       commonjs(),
-    //       externalGlobals({
-    //         vue: 'Vue',
-    //         'vue-router': 'VueRouter',
-    //         'element-plus': 'ElementPlus',
-    //         qs: 'Qs'
-    //       })
-    //     ]
-    //   }
-    // }
   };
 });

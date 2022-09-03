@@ -2,7 +2,7 @@ name: vueApp upload to Tencent cloud # 工作流名称
 
 on:
   push:
-    branches: "master" # 当 master 分支发生改变时触发工作流
+    branches: 'master' # 当 master 分支发生改变时触发工作流
 
 jobs:
   dockerActions:
@@ -34,7 +34,7 @@ jobs:
         with:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
-          host:  ${{ secrets.REMOTE_HOST }}
+          host: ${{ secrets.REMOTE_HOST }}
           script: |
             # 停止旧版容器
             docker stop ${{ secrets.DOCKER_CONTAINER }}
@@ -47,7 +47,7 @@ jobs:
 
             # 登录腾讯云容器镜像服务
             docker login ccr.ccs.tencentyun.com --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
-            
+
             # 拉取镜像
             docker pull ccr.ccs.tencentyun.com/my-mxc-docker/vueapp-docker-image:${{ secrets.DOCKER_IMAGE_TAG }}
 
