@@ -2,7 +2,7 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-03
+ * @LastEditTime: 2022-09-04
  */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
@@ -18,7 +18,7 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import ElementPlus from 'unplugin-element-plus/vite';
 
-// 打包可视化分析工具 rollup-plugin-visualizer
+// 打包可视化分析工具
 import { visualizer } from 'rollup-plugin-visualizer';
 
 // 生产环境资源 CDN 引入
@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
-      visualizer(),
+      visualizer(), // 打包可视化分析工具
       // importToCDN({
       //   modules: [
       //     {
@@ -76,11 +76,8 @@ export default defineConfig(({ mode }) => {
       //   ]
       // })
       viteCompression({
-        verbose: true,
-        disable: false,
-        threshold: 10240,
-        algorithm: 'gzip',
-        ext: '.gz'
+        threshold: 10240, // 资源超过 100kb 进行压缩
+        deleteOriginFile: true // 压缩后删除源文件
       })
     ],
     resolve: {
@@ -97,13 +94,13 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@assets/styles/global/variables.scss";`
+          additionalData: `@import "@assets/styles/global/variables.scss";` // 公共 scss 变量
         }
       }
     },
     server: {
-      host: '0.0.0.0',
-      port: 3000, //启动端口
+      // host: '0.0.0.0',
+      // port: 3000, //启动端口
       open: true, // 服务启动时是否自动打开浏览器
       cors: true, // 允许跨域
       proxy: {
@@ -119,7 +116,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       rollupOptions: {
-        // external: ['vue', 'vue-router', 'element-plus', 'qs'],
+        // external: ['vue', 'vue-router', 'element-plus', 'qs'], // 指定这些库不被打包
         // plugins: [
         //   commonjs(),
         //   externalGlobals({
@@ -148,7 +145,8 @@ export default defineConfig(({ mode }) => {
           }
         }
       },
-      chunkSizeWarningLimit: 1500 // 资源超出限制警告门槛 1.5mb
+      assetsInlineLimit: 102400, // 资源小于 100kb 转为 base64 减少 http 请求
+      chunkSizeWarningLimit: 1024 // 资源超出 1mb 报警
     }
   };
 });

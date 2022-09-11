@@ -1,8 +1,8 @@
 <!--
  * @Date: 2022-06-28
  * @Author: 马晓川 maxc@dustess.com
- * @LastEditors: 马晓川 maxc@dustess.com
- * @LastEditTime: 2022-08-17
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-09-04
  * @Description: 
 -->
 <template>
@@ -26,4 +26,6 @@ const emit = defineEmits<{
 const changeName = (): void => {
   emit('changeFatherMsg', '恁不是俺爹');
 };
+
+defineExpose({ tag: 'xxxx' });
 </script>

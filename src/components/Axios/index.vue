@@ -2,7 +2,7 @@
  * @Date: 2022-07-17
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-27
+ * @LastEditTime: 2022-09-03
  * @Description: 
 -->
 <template>
@@ -17,7 +17,6 @@
 // 使用 Record 来定义对象类型
 type ObjType = Record<string, object | string | number | Array<number>>;
 let source = reactive<ObjType>({ list: {} });
-
 // onMounted(async () => {
 //   setUserList();
 // });
