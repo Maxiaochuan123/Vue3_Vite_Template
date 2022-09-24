@@ -1,0 +1,70 @@
+// Dark
+// $--colors: (
+//   "primary": (
+//     "base": blueviolet,
+//   ),
+//   "success": (
+//     "base": #21ba45,
+//   ),
+//   "warning": (
+//     "base": #f2711c,
+//   ),
+//   "danger": (
+//     "base": #db2828,
+//   ),
+//   "error": (
+//     "base": #db2828,
+//   ),
+//   "info": (
+//     "base": #42b8dd,
+//   ),
+// );
+
+// @forward "element-plus/theme-chalk/src/common/var.scss" with (
+//   $colors: $--colors
+// );
+
+// element-plus dark 模式样式
+@import 'element-plus/theme-chalk/src/dark/css-vars.scss';
+
+html.dark {
+  background-color: $neumorphism_dark_theme-bg-color;
+
+  // 黑暗模式图片处理避免饱和度过高导致刺眼
+  // img {
+  //     filter:brightness(0.8) saturate(1.25)
+  // }
+
+  // Neumorphism 拟物态风格
+  .neumorphism {
+    box-shadow: $neumorphism_dark_box-shadow;
+    border-radius: $neumorphism-border-radius;
+    background-color: $neumorphism_dark_theme-bg-color;
+  }
+
+  // layout
+  .layout-header {
+    .menu-shrink {
+      box-shadow: $neumorphism_dark_box-shadow;
+    }
+    .actionsBar {
+      .icon-symbol,
+      .el-avatar {
+        box-shadow: $neumorphism_dark_box-shadow;
+      }
+    }
+  }
+
+  // 菜单
+  .el-menu {
+    .el-sub-menu__title:hover,
+    .el-menu-item:hover {
+      box-shadow: $neumorphism_dark_box-shadow;
+    }
+  }
+
+  // 按钮
+  // .el-button {
+  //   box-shadow: $neumorphism_dark_box-shadow;
+  // }
+}

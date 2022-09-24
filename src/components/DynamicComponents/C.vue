@@ -4,10 +4,10 @@
 
 <script lang="ts" setup>
 onMounted(() => {
-  console.log('C ---- onMounted');
-});
+  console.log('C ---- onMounted')
+})
 
 onActivated(() => {
-  console.log('C ---- onActivated');
-});
+  console.log('C ---- onActivated')
+})
 </script>

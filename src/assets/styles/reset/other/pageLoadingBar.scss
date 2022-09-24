@@ -1,6 +1,5 @@
-@import '@assets/styles/global/variables.scss';
 
 /* 修改页面顶部进度条颜色 */
-// #nprogress .bar {
-//     background-color: $theme-color !important;
-// }
+#nprogress .bar {
+    background-color: $theme-color !important;
+}

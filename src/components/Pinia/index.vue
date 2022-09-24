@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia';
-import { useMainStore } from '@store/index';
-import { storageSetItem, storageGetItem } from '@utils/storage';
+import { storeToRefs } from 'pinia'
+import { useMainStore } from '@store/index'
+import { storageSetItem, storageGetItem } from '@utils/storage'
 // storageSetItem()
-const mainStore = useMainStore();
-const { count, info, countGetter } = storeToRefs(mainStore);
+const mainStore = useMainStore()
+const { count, info, countGetter } = storeToRefs(mainStore)
 
 const handleChangeState = () => {
   // 方式一: 使用 $patch 一个函数   ★推荐
@@ -35,15 +35,15 @@ const handleChangeState = () => {
   // mainStore.changeCount(1)
 
   mainStore.$patch((state) => {
-    state.count++;
-    state.info.name = '老马~';
-    state.info.age = 18;
-  });
-};
+    state.count++
+    state.info.name = '老马~'
+    state.info.age = 18
+  })
+}
 
 interface ProductsInterFace {
-  name: string;
-  price: number;
+  name: string
+  price: number
 }
 const products: ProductsInterFace[] = [
   {
@@ -58,9 +58,9 @@ const products: ProductsInterFace[] = [
     name: 'c',
     price: 3
   }
-];
+]
 
 const totalPrice = products.reduce((total, item): number => {
-  return total + item.price;
-}, 0);
+  return total + item.price
+}, 0)
 </script>

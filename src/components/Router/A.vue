@@ -4,9 +4,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
 // 路由跳转传参
 const goPage = (): void => {
@@ -27,8 +27,8 @@ const goPage = (): void => {
       name: 'zs',
       age: 18
     }
-  });
-};
+  })
+}
 </script>
 
 <style lang="scss" scoped>

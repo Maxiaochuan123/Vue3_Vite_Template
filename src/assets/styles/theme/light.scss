@@ -1,0 +1,108 @@
+// Light
+
+// :root {
+//   --el-color-primary: #409eff;
+//   --el-color-primary-light-3: #79bbff;
+//   --el-color-primary-light-5: #a0cfff;
+//   --el-color-primary-light-7: #c6e2ff;
+//   --el-color-primary-light-8: #d9ecff;
+//   --el-color-primary-light-9: #ecf5ff;
+//   --el-color-primary-dark-2: #337ecc;
+//   --el-color-success: #67c23a;
+//   --el-color-success-light-3: #95d475;
+//   --el-color-success-light-5: #b3e19d;
+//   --el-color-success-light-7: #d1edc4;
+//   --el-color-success-light-8: #e1f3d8;
+//   --el-color-success-light-9: #f0f9eb;
+//   --el-color-success-dark-2: #529b2e;
+//   --el-color-warning: #e6a23c;
+//   --el-color-warning-light-3: #eebe77;
+//   --el-color-warning-light-5: #f3d19e;
+//   --el-color-warning-light-7: #f8e3c5;
+//   --el-color-warning-light-8: #faecd8;
+//   --el-color-warning-light-9: #fdf6ec;
+//   --el-color-warning-dark-2: #b88230;
+//   --el-color-danger: #f56c6c;
+//   --el-color-danger-light-3: #f89898;
+//   --el-color-danger-light-5: #fab6b6;
+//   --el-color-danger-light-7: #fcd3d3;
+//   --el-color-danger-light-8: #fde2e2;
+//   --el-color-danger-light-9: #fef0f0;
+//   --el-color-danger-dark-2: #c45656;
+//   --el-color-error: #f56c6c;
+//   --el-color-error-light-3: #f89898;
+//   --el-color-error-light-5: #fab6b6;
+//   --el-color-error-light-7: #fcd3d3;
+//   --el-color-error-light-8: #fde2e2;
+//   --el-color-error-light-9: #fef0f0;
+//   --el-color-error-dark-2: #c45656;
+//   --el-color-info: #909399;
+//   --el-color-info-light-3: #b1b3b8;
+//   --el-color-info-light-5: #c8c9cc;
+//   --el-color-info-light-7: #dedfe0;
+//   --el-color-info-light-8: #e9e9eb;
+//   --el-color-info-light-9: #f4f4f5;
+// }
+
+// $--colors: (
+//   "primary": (
+//     "base": green,
+//   ),
+//   "success": (
+//     "base": #21ba45,
+//   ),
+//   "warning": (
+//     "base": #f2711c,
+//   ),
+//   "danger": (
+//     "base": #db2828,
+//   ),
+//   "error": (
+//     "base": #db2828,
+//   ),
+//   "info": (
+//     "base": #42b8dd,
+//   ),
+// );
+
+// @forward "element-plus/theme-chalk/src/common/var.scss" with (
+//   $colors: $--colors
+// );
+
+html.light {
+  // --el-color-primary: green;
+  background-color: $neumorphism_light_theme-bg-color;
+
+  // Neumorphism 拟物态风格
+  .neumorphism {
+    box-shadow: $neumorphism_light_box-shadow;
+    border-radius: $neumorphism-border-radius;
+    background-color: $neumorphism_light_theme-bg-color;
+  }
+
+  // layout
+  .layout-header {
+    .menu-shrink {
+      box-shadow: $neumorphism_light_box-shadow;
+    }
+    .actionsBar {
+      .icon-symbol,
+      .el-avatar {
+        box-shadow: $neumorphism_light_box-shadow;
+      }
+    }
+  }
+
+  // 菜单
+  .el-menu {
+    .el-sub-menu__title:hover,
+    .el-menu-item:hover {
+      box-shadow: $neumorphism_light_box-shadow;
+    }
+  }
+
+  // 按钮
+  // .el-button {
+  //   box-shadow: $neumorphism_light_box-shadow;
+  // }
+}

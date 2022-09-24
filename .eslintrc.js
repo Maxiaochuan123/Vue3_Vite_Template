@@ -1,3 +1,10 @@
+/*
+ * @Date: 2022-07-17
+ * @Author: 马晓川 724503670@qq.com
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-09-19
+ * @Description:
+ */
 module.exports = {
   parser: 'vue-eslint-parser',
 
@@ -20,6 +27,7 @@ module.exports = {
   rules: {
     // override/add rules settings here, such as:
     'vue/multi-word-component-names': 'off',
-    'vue/v-on-event-hyphenation': 'off'
+    'vue/v-on-event-hyphenation': 'off',
+    '@typescript-eslint/no-var-requires': 0
   }
-};
+}

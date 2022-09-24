@@ -1,2 +1,8 @@
-@import './element-ui/index.scss';
-@import './other/index.scss';
+// element-plus
+@import '@assets/styles/reset/element-plus/popper-class.scss';
+#app {
+    @import '@assets/styles/reset/element-plus/menu.scss';
+}
+
+// other
+@import '@assets/styles/reset/other/pageLoadingBar.scss';

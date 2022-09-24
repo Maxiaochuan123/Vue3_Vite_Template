@@ -6,8 +6,8 @@
  * @Description:
  */
 // 页面顶部进度条
-import PageLaodingBar from 'nprogress';
-import 'nprogress/nprogress.css';
+import PageLaodingBar from 'nprogress'
+import 'nprogress/nprogress.css'
 
 PageLaodingBar.configure({
   easing: 'ease', // 动画方式
@@ -15,6 +15,6 @@ PageLaodingBar.configure({
   showSpinner: false, // 是否显示加载 icon
   trickleSpeed: 200, // 自动递增间隔
   minimum: 0.3 // 初始化时的最小百分比
-});
+})
 
-export default PageLaodingBar;
+export default PageLaodingBar

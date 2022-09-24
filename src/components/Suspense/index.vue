@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import Skeleton from './Skeleton.vue';
-const Son = defineAsyncComponent(() => import('./Son.vue'));
+import Skeleton from './Skeleton.vue'
+const Son = defineAsyncComponent(() => import('./Son.vue'))
 </script>
 
 <style lang="scss" scoped>

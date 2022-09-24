@@ -14,9 +14,9 @@
 <script lang="ts" setup>
 await new Promise<number>((resolve) => {
   setTimeout(() => {
-    resolve(1);
-  }, 3000);
-});
+    resolve(1)
+  }, 3000)
+})
 </script>
 
 <style lang="scss" scoped>

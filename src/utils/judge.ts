@@ -12,12 +12,12 @@
  * @return {string} 类型字符串(小写)
  */
 const superTypeof = (data: any): string => {
-  const type: string = typeof data;
+  const type: string = typeof data
 
   return type === 'object'
     ? Object.prototype.toString.call(data).slice(8, -1).toUpperCase()
-    : type;
-};
+    : type
+}
 
 /**
  * @description: 判断数据是否为空
@@ -32,10 +32,10 @@ const dataIsEmpty = (data: any): boolean => {
     ((superTypeof(data) === 'array' || superTypeof(data) === 'object') &&
       Object.keys(data).length === 0)
   ) {
-    return true;
+    return true
   } else {
-    return false;
+    return false
   }
-};
+}
 
-export { superTypeof, dataIsEmpty };
+export { superTypeof, dataIsEmpty }

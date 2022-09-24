@@ -1,0 +1,24 @@
+.el-menu {
+  border-right: none;
+  background-color: transparent;
+
+  .el-sub-menu__title,
+  .el-menu-item {
+    transition: all $transition-time;
+  }
+  .el-sub-menu__title:hover {
+    background-color: rgb(64, 158, 255, 0.2);
+  }
+  .el-menu-item:hover {
+    background-color: rgb(64, 158, 255, 0.5);
+  }
+
+  .el-sub-menu {
+    .el-menu-item span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+    }
+  }
+}

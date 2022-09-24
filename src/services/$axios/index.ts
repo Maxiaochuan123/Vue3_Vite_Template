@@ -4,14 +4,14 @@
  * @LastEditors: 马晓川 724503670@qq.com
  * @LastEditTime: 2022-08-23
  */
-import axios from 'axios';
-import qs from 'qs';
-import errorCode from './errorCode';
+import axios from 'axios'
+import qs from 'qs'
+import errorCode from './errorCode'
 
-import { ElMessage } from 'element-plus';
+import { ElMessage } from 'element-plus'
 
 // import { showLoading, closeLoading } from "./loading";
-import PageLaodingBar from '@plugins/pageLoadingBar';
+import PageLaodingBar from '@plugins/pageLoadingBar'
 
 // axios 配置 https://www.axios-http.cn/docs/req_config
 
@@ -23,69 +23,69 @@ const $axios = axios.create({
   },
   transformRequest: (data) => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
-});
+})
 
 // axios request 拦截器配置
 $axios.interceptors.request.use(
   (config) => {
     // showLoading();
-    PageLaodingBar.start();
+    PageLaodingBar.start()
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
 
-    if (token) config.headers!['Authorization'] = `Bearer ${token}`;
+    if (token) config.headers!['Authorization'] = `Bearer ${token}`
 
-    return config;
+    return config
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 // axios response 拦截器配置
 $axios.interceptors.response.use(
   (res) => {
     // closeLoading();
-    PageLaodingBar.done();
+    PageLaodingBar.done()
 
     // 默认成功状态码
-    const code: number = res.data['code'] || 200;
+    const code: number = res.data['code'] || 200
 
     // 获取错误信息
-    const errorMsg = errorCode(code) || res.data['message'];
+    const errorMsg = errorCode(code) || res.data['message']
 
     if (code === 200) {
-      return Promise.resolve(res.data);
+      return Promise.resolve(res.data)
     } else {
-      ElMessage.error(errorMsg);
+      ElMessage.error(errorMsg)
 
-      return Promise.reject(res.data);
+      return Promise.reject(res.data)
     }
   },
   (error) => {
     // closeLoading();
-    PageLaodingBar.done();
+    PageLaodingBar.done()
 
-    const { response } = error;
-    let { message } = error;
+    const { response } = error
+    let { message } = error
 
     if (response) {
       if (message == 'Network Error') {
-        message = '后端接口连接异常';
+        message = '后端接口连接异常'
       } else if (message.includes('timeout')) {
-        message = '系统接口请求超时';
+        message = '系统接口请求超时'
       } else if (message.includes('Request failed with status code')) {
-        message = '系统接口' + message.substr(message.length - 3) + '异常';
+        message = '系统接口' + message.substr(message.length - 3) + '异常'
       }
-      ElMessage.error(message);
+      ElMessage.error(message)
     } else {
       if (!window.navigator.onLine) {
         //断网处理：跳转到断网页面
-        return;
+        return
       }
-      return Promise.reject(error);
+      return Promise.reject(error)
     }
   }
-);
+)
 
-export default $axios;
+export default $axios

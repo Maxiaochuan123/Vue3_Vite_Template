@@ -9,14 +9,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
 
-const route = useRoute();
+const route = useRoute()
 
 // const { name, age } = route.query
 
-const { name, age } = route.params;
-console.log(route.params);
+const { name, age } = route.params
+console.log(route.params)
 </script>
 
 <style lang="scss" scoped></style>

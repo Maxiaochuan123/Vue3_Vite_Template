@@ -1,1 +1,15 @@
-$theme-color: #ff6600;
+$theme-color: #409eff;
+$theme-pd-lr: 0 12px;
+
+$transition-time: 0.1s;
+
+// neumorphism-light
+$neumorphism_light_box-shadow: 4px 4px 8px rgba(209, 217, 230, 1),
+  -4px -4px 8px rgba(249, 249, 249, 1);
+$neumorphism_light_theme-bg-color: rgba(236, 240, 243, 1);
+$neumorphism-border-radius: 12px;
+
+// neumorphism-dark
+$neumorphism_dark_box-shadow: 4px 4px 8px #191919, -4px -4px 8px #4b4b4b;
+$neumorphism_dark_theme-bg-color: #323232;
+$neumorphism-border-radius: 12px;

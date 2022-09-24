@@ -24,8 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-let input = ref();
-let value1 = ref();
+let input = ref()
+let value1 = ref()
 
-const tableData: string[] = [];
+const tableData: string[] = []
 </script>

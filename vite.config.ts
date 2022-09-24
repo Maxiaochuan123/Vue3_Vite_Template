@@ -2,24 +2,27 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-04
+ * @LastEditTime: 2022-09-24
  */
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+import { defineConfig, loadEnv } from 'vite'
 
 // 自动引入 vue3 内置属性
-import AutoImport from 'unplugin-auto-import/vite';
+import AutoImport from 'unplugin-auto-import/vite'
 
 // 按需加载自定义组件
-import Components from 'unplugin-vue-components/vite';
+import Components from 'unplugin-vue-components/vite'
 
 // 动态按需引入 Element-Plus
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-import ElementPlus from 'unplugin-element-plus/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import ElementPlus from 'unplugin-element-plus/vite'
+
+// I18n 优化
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // 打包可视化分析工具
-import { visualizer } from 'rollup-plugin-visualizer';
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // 生产环境资源 CDN 引入
 // import importToCDN from 'vite-plugin-cdn-import';
@@ -28,7 +31,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 // import externalGlobals from 'rollup-plugin-external-globals';
 
 // gzip 静态资源压缩
-import viteCompression from 'vite-plugin-compression';
+import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig(({ mode }) => {
   // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
@@ -37,18 +40,23 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       AutoImport({
-        // 自动引入 vue3 内置属性
-        imports: ['vue'],
+        // 自动导入属性方法
+        imports: ['vue', 'vue-router', 'pinia'],
         dts: 'src/auto-import.d.ts',
 
         // 动态按需引入 element-plus (1)
         resolvers: [ElementPlusResolver()]
       }),
       Components({
+        dirs: ['src/components/global'], // 自动导入组件路径 删除此项默认是 dirs: ['src/components'], 这会导入该路径下所有组件为全局组件，将会导致项目启动编译缓慢 白屏等待时间增加
         // 动态按需引入 element-plus (2)
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
+      // i18n 优化
+      VueI18nPlugin({
+        include: resolve(__dirname, './src/i18n/locales/**')
+      }),
       visualizer(), // 打包可视化分析工具
       // importToCDN({
       //   modules: [
@@ -82,6 +90,7 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
+        '~': resolve(__dirname, './'),
         '@': resolve(__dirname, 'src'),
         '@assets': resolve(__dirname, 'src/assets'),
         '@plugins': resolve(__dirname, 'src/plugins'),
@@ -94,7 +103,8 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@assets/styles/global/variables.scss";` // 公共 scss 变量
+          // 公共 scss
+          additionalData: `@use "@assets/styles/global/index.scss" as *;`
         }
       }
     },
@@ -140,7 +150,7 @@ export default defineConfig(({ mode }) => {
                 .toString()
                 .split('node_modules/')[1]
                 .split('/')[0]
-                .toString();
+                .toString()
             }
           }
         }
@@ -148,5 +158,5 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 102400, // 资源小于 100kb 转为 base64 减少 http 请求
       chunkSizeWarningLimit: 1024 // 资源超出 1mb 报警
     }
-  };
-});
+  }
+})

@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts" setup>
-let bgColor = ref<string>('#ccc');
+let bgColor = ref<string>('#ccc')
 
 const changeBgColor = (): void => {
-  bgColor.value = '#ff6600';
-};
+  bgColor.value = '#ff6600'
+}
 </script>
 
 <style lang="scss" scoped>

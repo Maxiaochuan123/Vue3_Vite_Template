@@ -12,16 +12,16 @@
 const strTrim = (str: string, type: 'L' | 'R' | 'LR' | 'ALL') => {
   switch (type) {
     case 'L':
-      return str.replace(/(^\s*)|(\s*$)/g, '');
+      return str.replace(/(^\s*)|(\s*$)/g, '')
     case 'R':
-      return str.replace(/(^\s*)/g, '');
+      return str.replace(/(^\s*)/g, '')
     case 'LR':
-      return str.replace(/(\s*$)/g, '');
+      return str.replace(/(\s*$)/g, '')
     case 'ALL':
-      return str.replace(/\s/g, '');
+      return str.replace(/\s/g, '')
     default:
-      return str;
+      return str
   }
-};
+}
 
-export { strTrim };
+export { strTrim }

@@ -18,16 +18,16 @@
 </template>
 
 <script lang="ts" setup>
-import A from './A.vue';
-import B from './B.vue';
-import C from './C.vue';
+import A from './A.vue'
+import B from './B.vue'
+import C from './C.vue'
 
 type Tabs = {
-  name: string;
-  component: ReturnType<typeof defineComponent>;
-};
+  name: string
+  component: ReturnType<typeof defineComponent>
+}
 
-type Component = Pick<Tabs, 'component'>;
+type Component = Pick<Tabs, 'component'>
 
 const TabList = reactive<Tabs[]>([
   {
@@ -42,11 +42,11 @@ const TabList = reactive<Tabs[]>([
     name: '组件C',
     component: markRaw(C)
   }
-]);
+])
 
-let currentTab = reactive<Component>({ component: TabList[0].component });
+let currentTab = reactive<Component>({ component: TabList[0].component })
 
 const switchTab = (component: Component): void => {
-  currentTab.component = component;
-};
+  currentTab.component = component
+}
 </script>

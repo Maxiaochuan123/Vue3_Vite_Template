@@ -5,6 +5,6 @@
  * @LastEditTime: 2022-08-20
  * @Description: 网页 title
  */
-const { VITE_APP_TITLE } = import.meta.env;
+const { VITE_APP_TITLE } = import.meta.env
 
-document.title = VITE_APP_TITLE;
+document.title = VITE_APP_TITLE

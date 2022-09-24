@@ -6,9 +6,9 @@
  * @Description:
  */
 export interface useMainStoreInterFace {
-  count: number;
+  count: number
   info: {
-    name: string;
-    age: number;
-  };
+    name: string
+    age: number
+  }
 }

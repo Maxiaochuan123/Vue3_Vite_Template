@@ -4,15 +4,15 @@
 
 <script lang="ts" setup>
 type Style = {
-  color: string;
-  fontSize: string;
-  bgColor: string;
-};
+  color: string
+  fontSize: string
+  bgColor: string
+}
 let style = reactive<Style>({
   color: '#fff',
   fontSize: '24px',
   bgColor: '#ccc'
-});
+})
 </script>
 
 <style lang="scss" scoped>

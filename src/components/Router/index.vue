@@ -20,9 +20,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
 const goPage = (str: string): void => {
   // 函数式路径跳转
@@ -35,8 +35,8 @@ const goPage = (str: string): void => {
   // 函数式路由 命名 跳转  ✳此方式需要路由注册有 name 属性
   router.push({
     name: str
-  });
-};
+  })
+}
 
 // // history 前进
 // const go = ():void => {

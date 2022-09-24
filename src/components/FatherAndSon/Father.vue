@@ -14,20 +14,20 @@
 </template>
 
 <script lang="ts" setup>
-import Son from './Son.vue';
+import Son from './Son.vue'
 
-const childRef = ref();
+const childRef = ref()
 onMounted(() => {
-  console.log(childRef.value);
-});
+  console.log(childRef.value)
+})
 
-let name = ref<string>('');
+let name = ref<string>('')
 
 const changeName = (): void => {
-  name.value = '俺是恁爹';
-};
+  name.value = '俺是恁爹'
+}
 
 const changeFatherMsg = (str: string): void => {
-  name.value = str;
-};
+  name.value = str
+}
 </script>

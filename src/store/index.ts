@@ -5,8 +5,8 @@
  * @LastEditTime: 2022-08-22
  * @Description:
  */
-import { defineStore } from 'pinia';
-import type { useMainStoreInterFace } from './interface';
+import { defineStore } from 'pinia'
+import type { useMainStoreInterFace } from './interface'
 
 export const useMainStore = defineStore('main', {
   // 类似组件的 data, 用来存储全局状态
@@ -27,7 +27,7 @@ export const useMainStore = defineStore('main', {
 
     // 方式二: 使用 this
     countGetter(): number {
-      return this.count + 10;
+      return this.count + 10
     }
   },
 
@@ -36,7 +36,7 @@ export const useMainStore = defineStore('main', {
    */
   actions: {
     changeCount(num: number): void {
-      this.count = this.count + num;
+      this.count = this.count + num
     }
   }
-});
+})

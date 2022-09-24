@@ -4,8 +4,8 @@
  * @LastEditors: 马晓川 maxc@dustess.com
  * @LastEditTime: 2022-08-16
  */
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import PageLaodingBar from '@plugins/pageLoadingBar';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import PageLaodingBar from '@plugins/pageLoadingBar'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,20 +28,20 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   }
-];
+]
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-});
+})
 
 router.beforeEach((to, from, next) => {
-  PageLaodingBar.start();
-  next();
-});
+  PageLaodingBar.start()
+  next()
+})
 
 router.afterEach((to, from) => {
-  PageLaodingBar.done();
-});
+  PageLaodingBar.done()
+})
 
-export default router;
+export default router

@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import Father from './Father.vue';
+import Father from './Father.vue'
 
-let ancestor = reactive<string[]>(['a', 'b']);
-provide('ancestor', ancestor);
+let ancestor = reactive<string[]>(['a', 'b'])
+provide('ancestor', ancestor)
 </script>
 
 <style lang="scss" scoped>

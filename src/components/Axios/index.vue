@@ -15,8 +15,8 @@
 // import { getUsers } from '@apis/public/index';
 
 // 使用 Record 来定义对象类型
-type ObjType = Record<string, object | string | number | Array<number>>;
-let source = reactive<ObjType>({ list: {} });
+type ObjType = Record<string, object | string | number | Array<number>>
+let source = reactive<ObjType>({ list: {} })
 // onMounted(async () => {
 //   setUserList();
 // });
@@ -25,5 +25,5 @@ const setUserList = async () => {
   // const data = await getUsers();
   // console.log(data);
   // source.list = data;
-};
+}
 </script>

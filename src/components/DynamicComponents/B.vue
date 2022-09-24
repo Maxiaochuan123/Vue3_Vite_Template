@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 onMounted(() => {
-  console.log('B ---- onMounted');
-});
+  console.log('B ---- onMounted')
+})
 
 onActivated(() => {
-  console.log('B ---- onActivated');
-});
+  console.log('B ---- onActivated')
+})
 </script>

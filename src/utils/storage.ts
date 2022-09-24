@@ -5,40 +5,40 @@
  * @LastEditTime: 2022-08-08
  * @Description: Storage 封装
  */
-import { dataIsEmpty } from './judge';
+import { dataIsEmpty } from './judge'
 
 interface StorageType {
-  local: Storage;
-  sesstion: Storage;
+  local: Storage
+  sesstion: Storage
 }
 
 const storageTypes: StorageType = {
   local: localStorage,
   sesstion: sessionStorage
-};
+}
 
 const storageGetItem = (type: string, key: string): any => {
-  const _key = storageTypes[type as keyof StorageType]?.getItem(key);
+  const _key = storageTypes[type as keyof StorageType]?.getItem(key)
 
-  return _key ? JSON.parse(_key) : {};
-};
+  return _key ? JSON.parse(_key) : {}
+}
 
 const storageSetItem = (type: string, key: string, item: any) => {
-  const value = formatterItem(item);
+  const value = formatterItem(item)
 
-  storageTypes[type as keyof StorageType]?.setItem(key, JSON.stringify(value));
-};
+  storageTypes[type as keyof StorageType]?.setItem(key, JSON.stringify(value))
+}
 
 const formatterItem = (item: any): any => {
-  if (dataIsEmpty(item)) throw new Error('当前值是空, 请检查~');
+  if (dataIsEmpty(item)) throw new Error('当前值是空, 请检查~')
 
   if (isRef(item)) {
-    return item.value;
+    return item.value
   } else if (isProxy(item)) {
-    return toRaw(item);
+    return toRaw(item)
   } else {
-    return item;
+    return item
   }
-};
+}
 
-export { storageGetItem, storageSetItem };
+export { storageGetItem, storageSetItem }

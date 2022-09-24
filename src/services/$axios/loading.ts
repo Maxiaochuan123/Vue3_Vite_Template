@@ -5,20 +5,20 @@
  * @LastEditTime: 2022-08-15
  * @Description:
  */
-import { ElLoading } from 'element-plus';
+import { ElLoading } from 'element-plus'
 
-let loading: any;
+let loading: any
 
 const showLoading = () => {
   loading = ElLoading.service({
     text: '加载中，请稍后...',
     background: 'rgba(0, 0, 0, 0.7)',
     spinner: 'el-icon-loading'
-  });
-};
+  })
+}
 
 const closeLoading = () => {
-  loading.close();
-};
+  loading.close()
+}
 
-export { showLoading, closeLoading };
+export { showLoading, closeLoading }

@@ -29,18 +29,18 @@
  */
 
 interface Hobby {
-  food: string;
-  motion: string;
+  food: string
+  motion: string
 }
 
 interface People {
-  name: string;
-  age: number;
-  hobby: Hobby;
+  name: string
+  age: number
+  hobby: Hobby
 }
 
 interface IRootInterface {
-  people: People;
+  people: People
 }
 
 const data = reactive<IRootInterface>({
@@ -52,16 +52,16 @@ const data = reactive<IRootInterface>({
       motion: '跑步'
     }
   }
-});
+})
 
 // toRef
-const age = toRef(data.people, 'age');
-const food = toRef(data.people.hobby, 'food');
+const age = toRef(data.people, 'age')
+const food = toRef(data.people.hobby, 'food')
 const handleChange = (): void => {
-  age.value = 22;
-  food.value = '面条';
-  console.log(age.value, food.value);
-};
+  age.value = 22
+  food.value = '面条'
+  console.log(age.value, food.value)
+}
 // // toRefs
 // const people = toRefs(data.people);
 // const handleChange = (): void => {

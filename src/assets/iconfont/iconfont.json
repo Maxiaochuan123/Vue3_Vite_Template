@@ -1,0 +1,142 @@
+{
+  "id": "3646250",
+  "name": "vue3后台模板",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "731140",
+      "name": "选择",
+      "font_class": "choice",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "17354495",
+      "name": "地球",
+      "font_class": "earth",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "3860874",
+      "name": "灵感",
+      "font_class": "light",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "15432437",
+      "name": "月亮",
+      "font_class": "dark",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "25931649",
+      "name": "设置",
+      "font_class": "setUp",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    },
+    {
+      "icon_id": "19661205",
+      "name": "退出",
+      "font_class": "signOut",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "11940460",
+      "name": "调色板",
+      "font_class": "palette",
+      "unicode": "e77e",
+      "unicode_decimal": 59262
+    },
+    {
+      "icon_id": "4942642",
+      "name": "更多",
+      "font_class": "more",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "7408039",
+      "name": "还原",
+      "font_class": "exitFullScreen",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "7408045",
+      "name": "全屏",
+      "font_class": "fullScreen",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "17868589",
+      "name": "更多",
+      "font_class": "catalogue",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "31568826",
+      "name": "费用额度",
+      "font_class": "feiyongedu",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "31568919",
+      "name": "竞品数据",
+      "font_class": "jingpinshuju",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "31568920",
+      "name": "考试与调查",
+      "font_class": "kaoshiyutiaocha",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "31568921",
+      "name": "费用发票",
+      "font_class": "feiyongfapiao",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "31568923",
+      "name": "知识学习",
+      "font_class": "zhishixuexi",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "31571042",
+      "name": "笔记",
+      "font_class": "biji",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "31593269",
+      "name": "支付",
+      "font_class": "zhifu",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "31593276",
+      "name": "商店",
+      "font_class": "shangdian",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    }
+  ]
+}

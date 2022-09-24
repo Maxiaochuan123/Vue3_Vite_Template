@@ -1,0 +1,11 @@
+// 磨砂玻璃效果
+.frosting {
+  background-color: rgba($color: rgba(255, 255, 255), $alpha: 0.1);
+  backdrop-filter: blur(8px);
+}
+
+// 点击不可选(避免出现蓝色背景，黑色边框)
+.notOptional {
+  user-select: none;
+  outline: none;
+}

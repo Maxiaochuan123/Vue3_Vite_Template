@@ -18,6 +18,7 @@
       "src/types"
     ],
     "paths": {
+      "~/*": ["./*"],
       "@/*": ["./src/*"],
       "@apis/*": ["./src/services/apis/*"],
       "@utils/*": ["./src/utils/*"],
