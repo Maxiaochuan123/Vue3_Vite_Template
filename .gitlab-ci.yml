@@ -1,0 +1,34 @@
+image: node:alpine
+
+# 执行步骤顺序
+stages:
+  - build
+  - deploy
+
+# 需要缓存的文件
+# cache:
+#   key:
+#     files:
+#       - package.json
+      # - pnpm-lock.yaml
+  # paths:
+  #   - node_modules
+
+build:
+  tags:
+    - test-cicd
+  stage: build
+  script:
+    - npm config set registry https://mirrors.cloud.tencent.com/npm/ #切换 腾讯 镜像源
+    - npm install pnpm -g
+    - pnpm config set registry https://mirrors.cloud.tencent.com/npm/ #切换 腾讯 镜像源
+    - pnpm install --no-frozen-lockfile
+    - pnpm build:prod
+  artifacts:
+    paths:
+      - dist
+
+deploy:
+  stage: deploy
+  script:
+    - scp -r dist root@121.5.51.91/www/wwwroot/http
