@@ -1,11 +1,4 @@
-###
- # @Date: 2022-09-25
- # @Author: 马晓川 724503670@qq.com
- # @LastEditors: 马晓川 724503670@qq.com
- # @LastEditTime: 2022-09-25
- # @Description: 
-### 
-#!/bin/sh
+#!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
 npx commitlint --edit $1
