@@ -19,11 +19,6 @@
       "path": "./node_modules/cz-customizable"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*": [
       "prettier --write",
