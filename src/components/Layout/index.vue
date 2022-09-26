@@ -29,6 +29,7 @@ import Header from './Header/index.vue'
 
 import { useLayoutStore } from '@store/layout'
 const layoutStore = useLayoutStore()
+
 const { menuWidth, language } = storeToRefs(layoutStore)
 
 const picker = ref()
