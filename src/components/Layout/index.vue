@@ -12,7 +12,7 @@
       <div class="main">
         <Header />
         <div class="container neumorphism">
-          <el-button type="primary">{{ $lang('按钮1') }} </el-button>
+          <el-button type="primary">{{ $lang('按钮12') }} </el-button>
           <el-date-picker v-model="picker" type="datetime" placeholder="Select date and time" />
         </div>
       </div>
