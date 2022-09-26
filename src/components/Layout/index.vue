@@ -2,7 +2,7 @@
  * @Date: 2022-09-13
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-24
+ * @LastEditTime: 2022-09-26
  * @Description: 
 -->
 <template>
@@ -12,12 +12,8 @@
       <div class="main">
         <Header />
         <div class="container neumorphism">
-          <el-button type="primary">{{ $lang('按钮') }}</el-button>
-          <el-date-picker
-            v-model="picker"
-            type="datetime"
-            placeholder="Select date and time"
-          />
+          <el-button type="primary">{{ $lang('按钮2') }}</el-button>
+          <el-date-picker v-model="picker" type="datetime" placeholder="Select date and time" />
         </div>
       </div>
     </ElConfigProvider>
