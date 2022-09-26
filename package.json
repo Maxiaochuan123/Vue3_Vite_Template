@@ -11,19 +11,12 @@
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
     "scanner": "i18next-scanner --config ./src/i18n/scanner.config.js",
     "preview": "vite preview",
-    "eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
-    "prettier": "prettier --write .",
     "commit": "git add . && git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-customizable"
-    }
-  },
-  "husky": {
-    "hooks": {
-       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
