@@ -1,5 +1,6 @@
 // 磨砂玻璃效果
 .frosting {
+  color: red;
   background-color: rgba($color: rgba(255, 255, 255), $alpha: 0.1);
   backdrop-filter: blur(8px);
 }
