@@ -6,16 +6,8 @@
  * @Description: 
 -->
 <template>
-  <IconSymbol
-    v-show="!isDark"
-    icon="icon-light"
-    @click="layoutStore.toggleLightOrDark()"
-  />
-  <IconSymbol
-    v-show="isDark"
-    icon="icon-dark"
-    @click="layoutStore.toggleLightOrDark()"
-  />
+  <IconSymbol v-show="!isDark" icon="icon-light" @click="layoutStore.toggleLightOrDark()" />
+  <IconSymbol v-show="isDark" icon="icon-dark" @click="layoutStore.toggleLightOrDark()" />
 </template>
 
 <script lang="ts" setup>

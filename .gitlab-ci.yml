@@ -10,9 +10,9 @@ stages:
 #   key:
 #     files:
 #       - package.json
-      # - pnpm-lock.yaml
-  # paths:
-  #   - node_modules
+# - pnpm-lock.yaml
+# paths:
+#   - node_modules
 
 build:
   tags:

@@ -15,9 +15,7 @@
           :key="index"
           @click="layoutStore.toggleLanguage(item.value)"
         >
-          <span :class="{ active: language === item.value }">{{
-            lang(item.label)
-          }}</span>
+          <span :class="{ active: language === item.value }">{{ lang(item.label) }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>

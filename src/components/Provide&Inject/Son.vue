@@ -10,9 +10,7 @@
     <h4>Son</h4>
     <h6>Ancestor: {{ ancestor }}</h6>
 
-    <el-button type="primary" @click="changeAncestor()">
-      changeAncestor
-    </el-button>
+    <el-button type="primary" @click="changeAncestor()"> changeAncestor </el-button>
   </div>
 </template>
 

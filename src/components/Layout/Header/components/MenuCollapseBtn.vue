@@ -12,11 +12,7 @@
       icon="icon-catalogue"
       @click="layoutStore.toggleMenuCollapse()"
     />
-    <IconBasic
-      v-show="menuIsCollapse"
-      icon="icon-more"
-      @click="layoutStore.toggleMenuCollapse()"
-    />
+    <IconBasic v-show="menuIsCollapse" icon="icon-more" @click="layoutStore.toggleMenuCollapse()" />
   </div>
 </template>
 

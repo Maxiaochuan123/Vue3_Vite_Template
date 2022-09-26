@@ -14,9 +14,7 @@
 const superTypeof = (data: any): string => {
   const type: string = typeof data
 
-  return type === 'object'
-    ? Object.prototype.toString.call(data).slice(8, -1).toUpperCase()
-    : type
+  return type === 'object' ? Object.prototype.toString.call(data).slice(8, -1).toUpperCase() : type
 }
 
 /**

@@ -34,7 +34,7 @@ const handleChangeState = () => {
   // 方式二: actions
   // mainStore.changeCount(1)
 
-  mainStore.$patch((state) => {
+  mainStore.$patch(state => {
     state.count++
     state.info.name = '老马~'
     state.info.age = 18

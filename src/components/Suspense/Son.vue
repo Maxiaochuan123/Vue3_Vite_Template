@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-await new Promise<number>((resolve) => {
+await new Promise<number>(resolve => {
   setTimeout(() => {
     resolve(1)
   }, 3000)

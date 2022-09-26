@@ -16,20 +16,13 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item>
-          <div
-            v-for="(item, index) in themeColorList"
-            :key="index"
-            class="color-block"
-          >
+          <div v-for="(item, index) in themeColorList" :key="index" class="color-block">
             <el-tooltip :content="item.describe" placement="top" effect="light">
               <div
                 :style="{ backgroundColor: item.color }"
                 @click="layoutStore.toggleTheme(item.describe)"
               >
-                <IconBasic
-                  v-show="item.describe === theme"
-                  icon="icon-choice"
-                ></IconBasic>
+                <IconBasic v-show="item.describe === theme" icon="icon-choice"></IconBasic>
               </div>
             </el-tooltip>
           </div>

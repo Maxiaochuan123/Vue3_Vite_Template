@@ -1,7 +1,5 @@
 <template>
-  <el-button type="primary" @click="changeBgColor()">
-    change bgColor
-  </el-button>
+  <el-button type="primary" @click="changeBgColor()"> change bgColor </el-button>
   <div class="box">JS 控制 CSS 背景颜色</div>
 </template>
 

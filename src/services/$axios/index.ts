@@ -21,13 +21,13 @@ const $axios = axios.create({
   headers: {
     'Content-Type': 'application/json;charset=utf-8' //请求头设置
   },
-  transformRequest: (data) => qs.stringify(data), //对发送的 data 进行处理
+  transformRequest: data => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
 })
 
 // axios request 拦截器配置
 $axios.interceptors.request.use(
-  (config) => {
+  config => {
     // showLoading();
     PageLaodingBar.start()
 
@@ -37,14 +37,14 @@ $axios.interceptors.request.use(
 
     return config
   },
-  (error) => {
+  error => {
     return Promise.reject(error)
   }
 )
 
 // axios response 拦截器配置
 $axios.interceptors.response.use(
-  (res) => {
+  res => {
     // closeLoading();
     PageLaodingBar.done()
 
@@ -62,7 +62,7 @@ $axios.interceptors.response.use(
       return Promise.reject(res.data)
     }
   },
-  (error) => {
+  error => {
     // closeLoading();
     PageLaodingBar.done()
 

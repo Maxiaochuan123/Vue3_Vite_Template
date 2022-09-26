@@ -82,11 +82,7 @@ const dateToTimeStamp = (dateType = 'current'): number => {
  * @param {*} separator 分隔符
  * @return {*} string
  */
-const timeStampToDateStr = (
-  timeStamp: number,
-  isFullDate = true,
-  separator = '-'
-): string => {
+const timeStampToDateStr = (timeStamp: number, isFullDate = true, separator = '-'): string => {
   const { YYYY, MM, DD, HH, mm, ss } = getDateItem(timeStamp)
 
   const dateStr = `${YYYY}${separator}${MM}${separator}${DD}`
@@ -106,17 +102,8 @@ const getDifferenceOfDays = (afterDate: string, beforeDate: string) => {
   const _beforeDate = dateToTimeStamp(strTrim(beforeDate, 'LR'))
 
   // eslint-disable-next-line prettier/prettier
-  const differenceOfDays = Math.ceil(
-    Math.abs((_afterDate - _beforeDate) / 86400000)
-  )
+  const differenceOfDays = Math.ceil(Math.abs((_afterDate - _beforeDate) / 86400000))
   return differenceOfDays
 }
 
-export {
-  getDateItem,
-  getDate,
-  getTime,
-  dateToTimeStamp,
-  timeStampToDateStr,
-  getDifferenceOfDays
-}
+export { getDateItem, getDate, getTime, dateToTimeStamp, timeStampToDateStr, getDifferenceOfDays }

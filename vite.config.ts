@@ -117,7 +117,7 @@ export default defineConfig(({ mode }) => {
         '/m1': {
           target: 'http://127.0.0.1:4523/',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/m1/, '')
+          rewrite: path => path.replace(/^\/m1/, '')
         }
       }
     },
@@ -146,11 +146,7 @@ export default defineConfig(({ mode }) => {
           // 超大静态资源拆分
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              return id
-                .toString()
-                .split('node_modules/')[1]
-                .split('/')[0]
-                .toString()
+              return id.toString().split('node_modules/')[1].split('/')[0].toString()
             }
           }
         }
