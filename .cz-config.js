@@ -30,7 +30,7 @@ module.exports = {
     subject: '请对本次提交进行简短描述 (必填)',
     body: '对本次提交进行更详细的说明 (可选)',
     breaking: '请列出任何BREAKING CHANGES(破坏性修改) (可选)',
-    footer: '请输入要关闭的issue，例如：#31 (可选)',
+    footer: '请输入要关闭的 issue/bug，例如：#31 (可选)',
     confirmCommit: '确定提交此说明吗?（yes/no）'
   },
   allowCustomScopes: true,
