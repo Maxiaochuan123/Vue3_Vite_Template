@@ -18,9 +18,9 @@ module.exports = {
     { value: 'hotfix', name: ' 🔥 紧急修复 bug' },
     { value: 'revert', name: ' 🔙 代码回退' },
     { value: 'ci', name: ' 👷‍♂️ 工程自动化构建' },
-    { value: 'test', name: ' 👨‍🔧 测试' },
+    { value: 'test', name: ' ✅ 测试' },
     { value: 'refactor', name: ' ♻️ 代码重构' },
-    { value: 'chore', name: ' 🚀 构建/工程依赖/工具' },
+    { value: 'chore', name: ' 🔧 构建/工程依赖/工具' },
     { value: 'build', name: ' 📦️ 变更项目构建或外部依赖 (例如scopes: webpack、vite 等)' }
   ],
   // 交互提示信息
