@@ -9,9 +9,11 @@
     "build:dev": "vue-tsc --noEmit && vite build --mode development",
     "build:test": "vue-tsc --noEmit && vite build --mode test",
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
-    "scanner": "i18next-scanner --config ./src/i18n/scanner.config.js",
+    "eslint": "eslint --ext .js,.ts,.vue,.jsx,.tsx --ignore-path .gitignore --fix src",
+    "prettier": "prettier --write .",
     "preview": "vite preview",
     "commit": "git add . && git-cz",
+    "scanner": "i18next-scanner --config ./src/i18n/scanner.config.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "config": {
