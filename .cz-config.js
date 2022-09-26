@@ -2,7 +2,7 @@
  * @Date: 2022-07-18
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-25
+ * @LastEditTime: 2022-09-26
  * @Description: 
  */
 'use strict'
@@ -12,16 +12,16 @@ module.exports = {
     { value: 'feat', name: ' ✨ 新增功能' },
     { value: 'fix', name: ' 🔨 修复bug' },
     { value: 'ui', name: ' 👗 ui修改' },
-    { value: 'perf', name: ' 🚀 优化' },
+    { value: 'perf', name: ' ⚡️ 优化' },
     { value: 'style', name: ' 🎨 代码风格美化' },
     { value: 'docs', name: ' 📚 文档' },
     { value: 'hotfix', name: ' 🔥 紧急修复 bug' },
     { value: 'revert', name: ' 🔙 代码回退' },
     { value: 'ci', name: ' 👷‍♂️ 工程自动化构建' },
     { value: 'test', name: ' 👨‍🔧 测试' },
-    { value: 'refactor', name: ' 🔄 代码重构' },
-    { value: 'chore', name: ' 🔧 变更构建流程或辅助工具' },
-    { value: 'build', name: ' 🔧 变更项目构建或外部依赖 (例如scopes: webpack、vite 等)' }
+    { value: 'refactor', name: ' ♻️ 代码重构' },
+    { value: 'chore', name: ' 🚀 构建/工程依赖/工具' },
+    { value: 'build', name: ' 📦️ 变更项目构建或外部依赖 (例如scopes: webpack、vite 等)' }
   ],
   // 交互提示信息
   messages: {
