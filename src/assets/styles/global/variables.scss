@@ -4,9 +4,9 @@ $theme-pd-lr: 0 12px;
 $transition-time: 0.1s;
 
 // neumorphism-light
-$neumorphism_light_box-shadow: 4px 4px 8px rgba(209, 217, 230, 1),
-  -4px -4px 8px rgba(249, 249, 249, 1);
-$neumorphism_light_theme-bg-color: rgba(236, 240, 243, 1);
+$neumorphism_light_box-shadow: 4px 4px 8px rgb(209 217 230 / 100%),
+  -4px -4px 8px rgb(249 249 249 / 100%);
+$neumorphism_light_theme-bg-color: rgb(236 240 243 / 100%);
 $neumorphism-border-radius: 12px;
 
 // neumorphism-dark

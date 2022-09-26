@@ -12,7 +12,7 @@
       <div class="main">
         <Header />
         <div class="container neumorphism">
-          <el-button type="primary">{{ $lang('按钮12') }} </el-button>
+          <el-button type="primary">{{ $lang('按钮') }} </el-button>
           <el-date-picker v-model="picker" type="datetime" placeholder="Select date and time" />
         </div>
       </div>
@@ -37,8 +37,8 @@ const picker = ref()
 
 <style lang="scss" scoped>
 #layout {
-  height: 100%;
   display: grid;
+  height: 100%;
   grid-template-rows: 1fr;
   grid-template-columns: v-bind(menuWidth) 1fr;
   column-gap: 12px;

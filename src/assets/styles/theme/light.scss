@@ -75,9 +75,9 @@ html.light {
 
   // Neumorphism 拟物态风格
   .neumorphism {
-    box-shadow: $neumorphism_light_box-shadow;
-    border-radius: $neumorphism-border-radius;
     background-color: $neumorphism_light_theme-bg-color;
+    border-radius: $neumorphism-border-radius;
+    box-shadow: $neumorphism_light_box-shadow;
   }
 
   // layout

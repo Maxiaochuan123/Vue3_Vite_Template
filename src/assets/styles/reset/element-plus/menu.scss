@@ -7,17 +7,17 @@
     transition: all $transition-time;
   }
   .el-sub-menu__title:hover {
-    background-color: rgb(64, 158, 255, 0.2);
+    background-color: rgb(64 158 255 / 20%);
   }
   .el-menu-item:hover {
-    background-color: rgb(64, 158, 255, 0.5);
+    background-color: rgb(64 158 255 / 50%);
   }
 
   .el-sub-menu {
     .el-menu-item span {
       overflow: hidden;
-      white-space: nowrap;
       text-overflow: ellipsis;
+      white-space: nowrap;
       word-break: break-all;
     }
   }

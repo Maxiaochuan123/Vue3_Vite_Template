@@ -7,7 +7,7 @@
 /**
  * @description: 字符串去空格
  * @param {*} type L：左  R：右  LR：左右
- * @return {*} 2
+ * @return {*}
  */
 const strTrim = (str: string, type: 'L' | 'R' | 'LR' | 'ALL') => {
   switch (type) {

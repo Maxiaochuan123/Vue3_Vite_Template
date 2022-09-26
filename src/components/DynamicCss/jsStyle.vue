@@ -17,8 +17,8 @@ let style = reactive<Style>({
 
 <style lang="scss" scoped>
 .box {
-  color: v-bind('style.color');
   font-size: v-bind('style.fontSize');
+  color: v-bind('style.color');
   background-color: v-bind('style.bgColor');
 }
 </style>

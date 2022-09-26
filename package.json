@@ -11,6 +11,7 @@
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
     "eslint": "eslint --ext .js,.ts,.vue,.jsx,.tsx --fix src",
     "prettier": "prettier --write .",
+    "stylelint": "stylelint \"./**/*.{css,scss,sass,vue,html}\" --fix",
     "preview": "vite preview",
     "commit": "git add . && git-cz",
     "scanner": "i18next-scanner --config ./src/i18n/scanner.config.js",
@@ -22,9 +23,12 @@
     }
   },
   "lint-staged": {
-    "src/*.{js,ts,css,scss,vue}": [
+    "*.{js,vue,ts,jsx,tsx}": [
       "prettier --write",
       "eslint --fix"
+    ],
+    "*.{html,css,less,scss,md}": [
+      "prettier --write"
     ]
   },
   "dependencies": {
@@ -63,6 +67,9 @@
     "husky": "^8.0.1",
     "i18next-scanner": "^4.0.0",
     "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.5",
     "prettier": "^2.7.1",
     "rollup": ">=2.79.0",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -70,6 +77,13 @@
     "rollup-plugin-visualizer": "^5.8.0",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
+    "stylelint": "^14.12.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-scss": "^7.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
     "typescript": "^4.8.2",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-element-plus": "^0.4.1",
