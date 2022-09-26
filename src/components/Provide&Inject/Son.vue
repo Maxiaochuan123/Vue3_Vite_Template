@@ -25,7 +25,7 @@ const changeAncestor = () => {
 
 <style lang="scss" scoped>
 .box3 {
-  background-color: azure;
   padding: 10px;
+  background-color: azure;
 }
 </style>

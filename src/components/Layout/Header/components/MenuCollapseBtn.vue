@@ -26,17 +26,19 @@ const { menuIsCollapse } = storeToRefs(layoutStore)
 <style lang="scss" scoped>
 .menu-shrink {
   height: 34px;
-  line-height: 32px;
-  border-radius: 50%;
   text-align: center;
+  border-radius: 50%;
+  line-height: 32px;
 
   .iconfont {
     display: inline-block;
     width: 34px;
   }
+
   .icon-catalogue {
     font-size: 18px;
   }
+
   .icon-more {
     font-size: 26px;
   }

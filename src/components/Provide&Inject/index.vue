@@ -23,7 +23,7 @@ provide('ancestor', ancestor)
 
 <style lang="scss" scoped>
 .box {
-  background-color: bisque;
   padding: 10px;
+  background-color: bisque;
 }
 </style>

@@ -23,7 +23,7 @@ let ancestor = inject('ancestor')
 
 <style lang="scss" scoped>
 .box2 {
-  background-color: beige;
   padding: 10px;
+  background-color: beige;
 }
 </style>

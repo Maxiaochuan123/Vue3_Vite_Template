@@ -26,7 +26,7 @@ const Son = defineAsyncComponent(() => import('./Son.vue'))
 
 <style lang="scss" scoped>
 .content {
-  background-color: aquamarine;
   padding: 20px;
+  background-color: aquamarine;
 }
 </style>

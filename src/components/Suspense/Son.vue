@@ -21,7 +21,7 @@ await new Promise<number>(resolve => {
 
 <style lang="scss" scoped>
 .son {
-  background-color: beige;
   padding: 20px;
+  background-color: beige;
 }
 </style>

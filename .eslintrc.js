@@ -2,7 +2,7 @@
  * @Date: 2022-07-17
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-19
+ * @LastEditTime: 2022-09-26
  * @Description:
  */
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
 
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true

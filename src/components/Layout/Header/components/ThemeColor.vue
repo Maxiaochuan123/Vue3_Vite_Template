@@ -6,7 +6,7 @@
  * @Description: 
 -->
 <template>
-  <Dropdown popper-class="layOut-themColor-dropdown" placement="left">
+  <Dropdown popper-class="layout-themColor-dropdown" placement="left">
     <section class="palette">
       <el-dropdown-item>
         <IconSymbol icon="icon-palette" />
@@ -52,7 +52,7 @@ const themeColorList = [
 </script>
 
 <style lang="scss">
-.layOut-themColor-dropdown {
+.layout-themColor-dropdown {
   .el-dropdown-menu__item {
     display: grid;
     grid-template-rows: 24px;
@@ -68,14 +68,16 @@ const themeColorList = [
 
     .color-block {
       height: 100%;
+
       .el-tooltip__trigger {
-        height: 100%;
-        cursor: pointer;
-        border-radius: 2px;
-        color: #fff;
         display: grid;
         justify-content: center;
         align-items: center;
+        height: 100%;
+        color: #fff;
+        border-radius: 2px;
+        cursor: pointer;
+
         i {
           margin: 0;
         }

@@ -31,21 +31,21 @@ import HeadPortraitDropdown from './components/HeadPortraitDropdown.vue'
 
 <style lang="scss">
 .layout-header {
-  height: 100%;
-  padding: $theme-pd-lr;
   display: grid;
-  grid-template-columns: 34px 1fr;
-  grid-template-rows: 1fr;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
+  padding: $theme-pd-lr;
+  grid-template-columns: 34px 1fr;
+  grid-template-rows: 1fr;
 
   .actionsBar {
-    height: 100%;
     display: grid;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 28px) auto;
-    align-items: center;
-    justify-content: end;
     column-gap: 18px;
 
     .icon-symbol {
@@ -59,6 +59,7 @@ import HeadPortraitDropdown from './components/HeadPortraitDropdown.vue'
   .icon-symbol,
   .el-avatar {
     @extend .notOptional;
+
     cursor: pointer;
 
     &:hover {

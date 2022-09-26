@@ -2,11 +2,11 @@
  * @Date: 2022-09-18
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-24
+ * @LastEditTime: 2022-09-26
  * @Description: 
 -->
 <template>
-  <Dropdown popper-class="layOut-headPortrait-dropdown" trigger="click">
+  <Dropdown popper-class="layout-headPortrait-dropdown" trigger="click">
     <el-avatar :size="32">
       <img src="@assets/images/avatar.jpg" alt="头像" class="head-portrait" />
     </el-avatar>
@@ -40,7 +40,7 @@ import ThemeColor from './ThemeColor.vue'
 </script>
 
 <style lang="scss">
-.layOut-headPortrait-dropdown {
+.layout-headPortrait-dropdown {
   .el-dropdown-menu .el-dropdown-menu__item {
     padding: 8px 16px;
 
@@ -56,6 +56,7 @@ import ThemeColor from './ThemeColor.vue'
 
   .el-dropdown {
     width: 100%;
+
     .palette {
       width: 100%;
     }
