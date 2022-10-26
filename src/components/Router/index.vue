@@ -1,22 +1,31 @@
+<!--
+ * @Date: 2022-07-10
+ * @Author: 马晓川 724503670@qq.com
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-10-17
+ * @Description: 
+-->
 <template>
-  <!-- 路由跳转 -->
-  <!-- <router-link :to="{ name: 'a' }">ToA</router-link>
+  <div>
+    <!-- 路由跳转 -->
+    <!-- <router-link :to="{ name: 'a' }">ToA</router-link>
     <router-link :to="{ name: 'b' }" style="margin-left:20px;">ToB</router-link> -->
 
-  <!-- 函数式路径跳转 -->
-  <!-- <el-button type="primary" @click="goPage('/a')">ToA</el-button>
+    <!-- 函数式路径跳转 -->
+    <!-- <el-button type="primary" @click="goPage('/a')">ToA</el-button>
     <el-button type="primary" @click="goPage('/b')">ToB</el-button> -->
 
-  <!-- 函数式路由 命名 跳转 -->
-  <el-button type="primary" @click="goPage('a')">ToA</el-button>
-  <el-button type="primary" @click="goPage('b')">ToB</el-button>
+    <!-- 函数式路由 命名 跳转 -->
+    <el-button type="primary" @click="goPage('a')">ToA</el-button>
+    <el-button type="primary" @click="goPage('b')">ToB</el-button>
 
-  <!-- <el-button type="primary" @click="go">Go</el-button>
+    <!-- <el-button type="primary" @click="go">Go</el-button>
     <el-button type="primary" @click="back">Back</el-button> -->
 
-  <hr />
+    <hr />
 
-  <router-view />
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts" setup>

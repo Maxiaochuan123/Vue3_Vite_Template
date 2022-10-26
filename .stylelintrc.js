@@ -1,5 +1,6 @@
 /**
  *  不使用stylelint 风格变化太大,自由度太高,这种限制反而增加心智负担
+ *  extends 中的插件需要安装
  */
 
 // module.exports = {

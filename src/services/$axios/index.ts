@@ -2,24 +2,24 @@
  * @Date: 2022-07-16
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-23
+ * @LastEditTime: 2022-10-19
  */
-import axios from 'axios'
-import qs from 'qs'
-import errorCode from './errorCode'
-
-import { ElMessage } from 'element-plus'
-
-// import { showLoading, closeLoading } from "./loading";
-import PageLaodingBar from '@plugins/pageLoadingBar'
 
 // axios 配置 https://www.axios-http.cn/docs/req_config
 
-const $axios = axios.create({
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import qs from 'qs'
+import errorCode from './errorCode'
+import { ElMessage } from 'element-plus'
+// import { showLoading, closeLoading } from "./loading";
+import PageLaodingBar from '@plugins/pageLoadingBar'
+
+const $axios: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
   // withCredentials: true, //跨域是否允许携带凭证
   headers: {
-    'Content-Type': 'application/json;charset=utf-8' //请求头设置
+    Authorization: `Bearer ${localStorage.getItem('token') as string}` || '',
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' //请求头设置
   },
   transformRequest: data => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
@@ -27,24 +27,20 @@ const $axios = axios.create({
 
 // axios request 拦截器配置
 $axios.interceptors.request.use(
-  config => {
+  (config: AxiosRequestConfig) => {
     // showLoading();
     PageLaodingBar.start()
 
-    const token = localStorage.getItem('token')
-
-    if (token) config.headers!['Authorization'] = `Bearer ${token}`
-
     return config
   },
-  error => {
+  (error: AxiosError) => {
     return Promise.reject(error)
   }
 )
 
 // axios response 拦截器配置
 $axios.interceptors.response.use(
-  res => {
+  (res: AxiosResponse) => {
     // closeLoading();
     PageLaodingBar.done()
 
@@ -62,7 +58,7 @@ $axios.interceptors.response.use(
       return Promise.reject(res.data)
     }
   },
-  error => {
+  (error: AxiosError) => {
     // closeLoading();
     PageLaodingBar.done()
 
@@ -75,7 +71,7 @@ $axios.interceptors.response.use(
       } else if (message.includes('timeout')) {
         message = '系统接口请求超时'
       } else if (message.includes('Request failed with status code')) {
-        message = '系统接口' + message.substr(message.length - 3) + '异常'
+        message = '系统接口' + message.substring(message.length - 3) + '异常'
       }
       ElMessage.error(message)
     } else {

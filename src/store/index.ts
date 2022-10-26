@@ -2,10 +2,9 @@
  * @Date: 2022-06-11
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-22
+ * @LastEditTime: 2022-10-14
  * @Description:
  */
-import { defineStore } from 'pinia'
 import type { useMainStoreInterFace } from './interface'
 
 export const useMainStore = defineStore('main', {

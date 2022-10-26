@@ -2,16 +2,16 @@
  * @Date: 2022-09-15
  * @Author: 马晓川 724503670@qq.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-24
+ * @LastEditTime: 2022-10-17
  * @Description:
  */
-import { defineStore } from 'pinia'
 import useToggleFullscreen from '@/hooks/vueuse/useToggleFullscreen'
 import useToggleDark from '@/hooks/vueuse/useToggleDark'
 
 export const useLayoutStore = defineStore('layout', {
   state: () => ({
     menuIsCollapse: false,
+    menuActiveIndex: sessionStorage.getItem('menuActiveIndex') || 'home',
     isFullscreen: false,
     isDark: false,
     language: 'cn',
@@ -32,6 +32,10 @@ export const useLayoutStore = defineStore('layout', {
   actions: {
     toggleMenuCollapse() {
       this.menuIsCollapse = !this.menuIsCollapse
+    },
+    togglemenuActiveIndex(activeIndex: string) {
+      this.menuActiveIndex = activeIndex
+      sessionStorage.setItem('menuActiveIndex', activeIndex)
     },
     toggleBrowserFullscreen() {
       this.isFullscreen = !this.isFullscreen

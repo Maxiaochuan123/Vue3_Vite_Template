@@ -2,13 +2,16 @@
  * @Date: 2022-06-09
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-09-24
+ * @LastEditTime: 2022-10-18
  */
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
 
-// 自动引入 vue3 内置属性
+// 组件设置 name
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+
+// 自动导入内置属性
 import AutoImport from 'unplugin-auto-import/vite'
 
 // 按需加载自定义组件
@@ -27,7 +30,9 @@ import { visualizer } from 'rollup-plugin-visualizer'
 // 生产环境资源 CDN 引入
 // import importToCDN from 'vite-plugin-cdn-import';
 
-// import commonjs from 'rollup-plugin-commonjs';
+// rollup本身是不支持CommonJS的，使用了这个插件，就可以解析CommonJS模块
+// import commonjs from '@rollup/plugin-commonjs'
+
 // import externalGlobals from 'rollup-plugin-external-globals';
 
 // gzip 静态资源压缩
@@ -39,8 +44,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
+      vueSetupExtend(),
       AutoImport({
-        // 自动导入属性方法
         imports: ['vue', 'vue-router', 'pinia'],
         dts: 'src/auto-import.d.ts',
 
@@ -53,11 +58,10 @@ export default defineConfig(({ mode }) => {
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
-      // i18n 优化
       VueI18nPlugin({
         include: resolve(__dirname, './src/i18n/locales/**')
       }),
-      visualizer(), // 打包可视化分析工具
+      visualizer(),
       // importToCDN({
       //   modules: [
       //     {

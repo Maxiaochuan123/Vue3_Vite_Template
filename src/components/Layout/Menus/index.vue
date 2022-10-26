@@ -1,10 +1,19 @@
 <template>
   <el-scrollbar class="neumorphism">
     <!-- default-active: 单级前缀 single, 多级前缀 multiple, 下标从 1 开始 -->
-    <el-menu default-active="single-1" :collapse="menuIsCollapse" :collapse-transition="false">
+    <el-menu
+      :default-active="menuActiveIndex"
+      :collapse="menuIsCollapse"
+      :collapse-transition="false"
+      @select="menuSelect"
+    >
       <section v-for="(menu, mIndex) in menus" :key="mIndex">
         <!-- 单级菜单 -->
-        <el-menu-item v-if="menu.path" :index="`single-${mIndex + 1}`" @click="goPage(menu.path)">
+        <el-menu-item
+          v-if="menu.path"
+          :index="menu.path === '/' ? 'home' : `single-${mIndex + 1}`"
+          @click="goPage(menu.path)"
+        >
           <IconSymbol :icon="menu.icon" />
           <span v-show="!menuIsCollapse">{{ menu.title }}</span>
         </el-menu-item>
@@ -53,10 +62,17 @@
 <script lang="ts" setup>
 import { useLayoutStore } from '@store/layout'
 const layoutStore = useLayoutStore()
-const { menuIsCollapse, menuIconArrow } = storeToRefs(layoutStore)
+const { menuIsCollapse, menuIconArrow, menuActiveIndex } = storeToRefs(layoutStore)
 
+const router = useRouter()
 const goPage = (path?: string) => {
-  console.log(path)
+  router.push({
+    path: path as string
+  })
+}
+
+const menuSelect = (index: string) => {
+  layoutStore.togglemenuActiveIndex(index)
 }
 
 type Children = {
@@ -74,9 +90,9 @@ type Menus = {
 
 const menus: Menus[] = [
   {
-    title: '竞品数据',
+    title: '首页',
     icon: 'icon-jingpinshuju',
-    path: 'xxx/xxx'
+    path: '/'
   },
   {
     title: '考试与调查',
@@ -84,7 +100,7 @@ const menus: Menus[] = [
     children: [
       {
         title: 'aaaaa',
-        path: 'xxx/xxx'
+        path: '/element'
       }
     ]
   },
@@ -94,14 +110,14 @@ const menus: Menus[] = [
     children: [
       {
         title: 'aaaaa',
-        path: 'xxx/xxx'
+        path: '/a'
       },
       {
         title: 'bbbbb',
         children: [
           {
             title: 'ccccc',
-            path: 'xxx/xxx'
+            path: '/c'
           }
         ]
       }

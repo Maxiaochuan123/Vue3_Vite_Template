@@ -2,15 +2,16 @@
  * @Date: 2022-07-17
  * @Author: 马晓川 maxc@dustess.com
  * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-08-23
+ * @LastEditTime: 2022-10-19
  */
 
-import $axios from '@/services/$axios'
+import { $get, $post } from '~/src/services/$axios/requestHandle'
 
-export const getUser = () => {
-  return $axios.get('/m1/1300842-0-default/pet/1').then(res => res.data)
-}
+type GetUser = { petId: number }
+export const getUser = (query: GetUser) => $get('/pet/', query)
 
-export const getUsers = () => {
-  return $axios.get('http://localhost:3000/api/users').then(res => res.data)
-}
+type Login = { username: string; password: string }
+export const login = (params: Login) => $post(`/apifox/user/login`, params)
+
+type Pet = { name: string; status: string }
+export const pet = (params: Pet) => $post('/pet', params)

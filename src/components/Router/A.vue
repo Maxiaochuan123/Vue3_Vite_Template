@@ -1,3 +1,10 @@
+<!--
+ * @Date: 2022-07-10
+ * @Author: 马晓川 724503670@qq.com
+ * @LastEditors: 马晓川 724503670@qq.com
+ * @LastEditTime: 2022-10-17
+ * @Description: 
+-->
 <template>
   <h4>AA页面</h4>
   <el-button type="primary" @click="goPage">带参跳转到 B页面</el-button>
@@ -7,7 +14,6 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
 // 路由跳转传参
 const goPage = (): void => {
   // query 时参数会在地址栏展示, 可以配合 path 或 name 使用, 由于参数是存在地址栏的, 所以刷新不会丢失
