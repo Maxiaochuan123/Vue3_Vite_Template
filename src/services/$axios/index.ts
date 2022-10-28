@@ -12,7 +12,7 @@ import qs from 'qs'
 import errorCode from './errorCode'
 import { ElMessage } from 'element-plus'
 // import { showLoading, closeLoading } from "./loading";
-import PageLaodingBar from '@plugins/pageLoadingBar'
+import PageLoadingBar from '@plugins/pageLoadingBar'
 
 const $axios: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
@@ -29,7 +29,7 @@ const $axios: AxiosInstance = axios.create({
 $axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     // showLoading();
-    PageLaodingBar.start()
+    PageLoadingBar.start()
 
     return config
   },
@@ -42,7 +42,7 @@ $axios.interceptors.request.use(
 $axios.interceptors.response.use(
   (res: AxiosResponse) => {
     // closeLoading();
-    PageLaodingBar.done()
+    PageLoadingBar.done()
 
     // 默认成功状态码
     const code: number = res.data['code'] || 200
@@ -60,7 +60,7 @@ $axios.interceptors.response.use(
   },
   (error: AxiosError) => {
     // closeLoading();
-    PageLaodingBar.done()
+    PageLoadingBar.done()
 
     const { response } = error
     let { message } = error
