@@ -12,7 +12,7 @@
 
     <el-input v-model="input" placeholder="Please input" />
 
-    <div class="block">
+    <!-- <div class="block">
       <span class="demonstration">Default</span>
       <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
     </div>
@@ -21,7 +21,7 @@
       <el-table-column prop="date" label="Date" width="180" />
       <el-table-column prop="name" label="Name" width="180" />
       <el-table-column prop="address" label="Address" />
-    </el-table>
+    </el-table> -->
   </div>
 </template>
 

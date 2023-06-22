@@ -6,11 +6,13 @@
  */
 
 // axios 配置 https://www.axios-http.cn/docs/req_config
-
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import { RequestCanceler } from './requestCanceler'
+import { getToken } from './auth'
 import qs from 'qs'
 import errorCode from './errorCode'
 import { ElMessage } from 'element-plus'
+// import 'element-plus/es/components/message/style/css'
 // import { showLoading, closeLoading } from "./loading";
 import PageLoadingBar from '@plugins/pageLoadingBar'
 
@@ -18,19 +20,24 @@ const $axios: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
   // withCredentials: true, //跨域是否允许携带凭证
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('token') as string}` || '',
+    Authorization: `Bearer ${getToken()}`,
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' //请求头设置
   },
   transformRequest: data => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
 })
 
+const canceler = new RequestCanceler()
+
 // axios request 拦截器配置
 $axios.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: InternalAxiosRequestConfig) => {
     // showLoading();
     PageLoadingBar.start()
-
+    // 检查是否存在重复请求，若存在则取消已发的请求
+    canceler.removePendingRequest(config)
+    // 把当前的请求信息添加到pendingRequest
+    canceler.addPendingRequest(config)
     return config
   },
   (error: AxiosError) => {
@@ -44,23 +51,26 @@ $axios.interceptors.response.use(
     // closeLoading();
     PageLoadingBar.done()
 
-    // 默认成功状态码
-    const code: number = res.data['code'] || 200
+    // 移除正在pending中的请求
+    canceler.removePendingRequest(res.config)
 
-    // 获取错误信息
-    const errorMsg = errorCode(code) || res.data['message']
+    // 获取状态码
+    const code: number = res.data['code'] || 200
 
     if (code === 200) {
       return Promise.resolve(res.data)
     } else {
+      const errorMsg = errorCode(code) || res.data['message']
       ElMessage.error(errorMsg)
-
       return Promise.reject(res.data)
     }
   },
   (error: AxiosError) => {
     // closeLoading();
     PageLoadingBar.done()
+
+    // 移除正在pending中的请求
+    canceler.removePendingRequest(error.config || {})
 
     const { response } = error
     let { message } = error

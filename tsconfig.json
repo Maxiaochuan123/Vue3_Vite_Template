@@ -20,10 +20,11 @@
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./src/*"],
-      "@apis/*": ["./src/services/apis/*"],
+      "@apis/*": ["./src/service/apis/*"],
       "@utils/*": ["./src/utils/*"],
       "@plugins/*": ["./src/plugins/*"],
-      "@store/*": ["./src/store/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"]
     }
   },

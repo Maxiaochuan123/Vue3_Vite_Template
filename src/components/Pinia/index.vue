@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { useMainStore } from '@store/index'
+import { useMainStore } from '@stores/index'
 import { storageSetItem, storageGetItem } from '@utils/storage'
 // storageSetItem()
 const mainStore = useMainStore()

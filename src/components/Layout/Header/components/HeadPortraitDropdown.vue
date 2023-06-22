@@ -6,7 +6,7 @@
  * @Description: 
 -->
 <template>
-  <Dropdown popper-class="layout-headPortrait-dropdown" trigger="click">
+  <Dropdown popper-class="layout-headPortrait-dropdown" trigger="hover">
     <el-avatar :size="32">
       <img src="@assets/images/avatar.jpg" alt="头像" class="head-portrait" />
     </el-avatar>

@@ -39,7 +39,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig(({ mode }) => {
-  // 环境变量 const env = loadEnv(mode, process.cwd()).VITE_APP_TITLE;
+  const env = loadEnv(mode, process.cwd())
 
   return {
     plugins: [
@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => {
         // 动态按需引入 element-plus (2)
         resolvers: [ElementPlusResolver()]
       }),
-      ElementPlus(), // 动态按需引入 element-plus 样式文件 (3)
+      ElementPlus({ useSource: true }), // 动态按需引入 element-plus 样式文件 (3)
       VueI18nPlugin({
         include: resolve(__dirname, './src/i18n/locales/**')
       }),
@@ -98,9 +98,10 @@ export default defineConfig(({ mode }) => {
         '@': resolve(__dirname, 'src'),
         '@assets': resolve(__dirname, 'src/assets'),
         '@plugins': resolve(__dirname, 'src/plugins'),
-        '@apis': resolve(__dirname, 'src/services/apis'),
+        '@apis': resolve(__dirname, 'src/service/apis'),
         '@utils': resolve(__dirname, 'src/utils'),
-        '@store': resolve(__dirname, 'src/store'),
+        '@stores': resolve(__dirname, 'src/stores'),
+        '@hooks': resolve(__dirname, 'src/hooks'),
         '@components': resolve(__dirname, 'src/components')
       }
     },
@@ -119,7 +120,7 @@ export default defineConfig(({ mode }) => {
       cors: true, // 允许跨域
       proxy: {
         '/m1': {
-          target: 'http://127.0.0.1:4523/',
+          target: env.VITE_APP_BASE_URL,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/m1/, '')
         }

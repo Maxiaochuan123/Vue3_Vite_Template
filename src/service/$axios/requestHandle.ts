@@ -9,8 +9,6 @@ import $axios from './index'
 
 const PREFIX = '/m1/1300842-0-default'
 
-const $get = (url: string, params: any) => $axios.get(`${PREFIX}${url}`, { params })
+export const $get = <T>(url: string, params: T) => $axios.get(`${PREFIX}${url}`, { params })
 
-const $post = (url: string, params: any) => $axios.post(`${PREFIX}${url}`, { params })
-
-export { $get, $post }
+export const $post = <T>(url: string, params: T) => $axios.post(`${PREFIX}${url}`, { params })

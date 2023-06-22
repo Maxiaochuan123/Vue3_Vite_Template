@@ -12,18 +12,17 @@
       <div class="main">
         <Header />
         <div class="container neumorphism">
-          <!-- <el-button type="primary">{{ $lang('按钮') }} </el-button>
-          <el-date-picker v-model="picker" type="datetime" placeholder="Select date and time" /> -->
-          <!-- <el-scrollbar>
-            <p v-for="(item, index) in 50" :key="index">{{ item }}</p>
-          </el-scrollbar> -->
-          <router-view v-slot="{ Component, route }">
+          <RouterView v-slot="{ Component, route }">
             <transition name="page">
-              <keep-alive :include="caches">
-                <component :is="Component" :key="route.fullPath" />
-              </keep-alive>
+              <KeepAlive>
+                <component :is="Component" v-if="route.meta.keepAlive" :key="route.fullPath" />
+              </KeepAlive>
             </transition>
-          </router-view>
+
+            <transition name="page">
+              <component :is="Component" v-if="!route.meta.keepAlive" :key="route.fullPath" />
+            </transition>
+          </RouterView>
         </div>
       </div>
     </ElConfigProvider>
@@ -32,22 +31,16 @@
 
 <script lang="ts" setup>
 // ElementUi 组件全局配置
-import { locale } from '@/plugins/elementPlusConfig'
-import { size } from '@/plugins/elementPlusConfig'
 import Menus from './Menus/index.vue'
 import Header from './Header/index.vue'
-
-import { useLayoutStore } from '@store/layout'
-import { useKeepAlive } from '@store/keepAlive'
+import { locale } from '@/plugins/elementPlusConfig'
+import { size } from '@/plugins/elementPlusConfig'
+import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
-const { menuWidth, language } = storeToRefs(layoutStore)
-
-const { caches } = storeToRefs(useKeepAlive())
-
-const picker = ref()
-
-const cacheList = ['element']
+const { menuWidth } = storeToRefs(layoutStore)
+const { themeColor, language } = layoutStore
+layoutStore.toggleThemeColor(themeColor)
 </script>
 
 <style lang="scss" scoped>

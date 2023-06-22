@@ -6,36 +6,54 @@
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import PageLaodingBar from '@plugins/pageLoadingBar'
-import { useKeepAlive } from '@store/keepAlive'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    meta: { cnName: '首页', keepAlive: true },
-    component: () => import('@components/Layout/Home/index.vue'),
-
-    // 嵌套路由 children[] ✳需要在父路由中放置 <router-view>, 并且子路由需要加上父路由前缀
+    meta: { cnName: '首页' },
+    component: () => import('@components/Layout/Home/index.vue')
+  },
+  {
+    path: '/table',
+    name: 'table',
+    meta: { cnName: '表格' },
+    component: () => import('@components/table/index.vue')
+  },
+  {
+    path: '/kao',
+    name: 'kao',
+    meta: { cnName: '考试与调查' },
     children: [
       {
-        path: '/a',
+        path: 'a',
         name: 'a',
         component: () => import('@components/Router/A.vue')
       },
       {
-        // path: '/b', // 普通路由
-        path: '/b/:name/:age', // 动态路由
+        path: 'b/:name/:age', // 动态路由
         name: 'b',
         component: () => import('@components/Router/B.vue')
       }
     ]
   },
-
   {
-    path: '/element',
-    name: 'element-ui-test',
-    meta: { keepAlive: true },
-    component: () => import('@/components/ElementUI/index.vue')
+    path: '/fei',
+    name: 'fei',
+    meta: { cnName: '费用额度' },
+    children: [
+      {
+        path: 'element',
+        name: 'element',
+        meta: { keepAlive: true },
+        component: () => import('@/components/ElementUI/index.vue')
+      },
+      {
+        path: 'c',
+        name: 'c',
+        component: () => import('@components/Router/C.vue')
+      }
+    ]
   }
 ]
 
@@ -46,12 +64,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   PageLaodingBar.start()
-
-  if (to.meta.keepAlive) {
-    const { push } = useKeepAlive()
-    push(to.name as string)
-  }
-
   next()
 })
 

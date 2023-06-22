@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-10-19
  */
 
-import { $get, $post } from '~/src/services/$axios/requestHandle'
+import { $get, $post } from '~/src/service/$axios/requestHandle'
 
 type GetUser = { petId: number }
 export const getUser = (query: GetUser) => $get('/pet/', query)

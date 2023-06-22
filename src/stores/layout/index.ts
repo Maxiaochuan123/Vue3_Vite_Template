@@ -1,26 +1,27 @@
-/*
- * @Date: 2022-09-15
- * @Author: 马晓川 724503670@qq.com
- * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-10-17
- * @Description:
- */
-import useToggleFullscreen from '@/hooks/vueuse/useToggleFullscreen'
-import useToggleDark from '@/hooks/vueuse/useToggleDark'
+import useToggleFullscreen from '@/hooks/vueUse/useToggleFullscreen'
+import { useToggleDark, useToggleThemeColor } from '@/hooks/vueUse/useTheme'
 
 export const useLayoutStore = defineStore('layout', {
   state: () => ({
     menuIsCollapse: false,
-    menuActiveIndex: sessionStorage.getItem('menuActiveIndex') || 'home',
+    menuActiveIndex: 'home',
     isFullscreen: false,
     isDark: false,
-    language: 'cn',
-    theme: '薄暮'
+    themeColor: 'default',
+    language: 'cn'
   }),
-  persist: {
-    key: 'pinia-layout',
-    paths: ['isDark', 'language']
-  },
+  persist: [
+    {
+      key: 'pinia-layout',
+      paths: ['menuActiveIndex'],
+      storage: sessionStorage
+    },
+    {
+      key: 'pinia-layout',
+      paths: ['isDark', 'themeColor', 'language'],
+      storage: localStorage
+    }
+  ],
   getters: {
     menuWidth(): string {
       return this.menuIsCollapse ? '56px' : '270px'
@@ -35,7 +36,6 @@ export const useLayoutStore = defineStore('layout', {
     },
     togglemenuActiveIndex(activeIndex: string) {
       this.menuActiveIndex = activeIndex
-      sessionStorage.setItem('menuActiveIndex', activeIndex)
     },
     toggleBrowserFullscreen() {
       this.isFullscreen = !this.isFullscreen
@@ -48,10 +48,9 @@ export const useLayoutStore = defineStore('layout', {
     toggleLanguage(type: string) {
       this.language = type
     },
-    toggleTheme(type: string) {
-      console.log(type)
-
-      this.theme = type
+    toggleThemeColor(type: string) {
+      this.themeColor = type
+      useToggleThemeColor(type)
     }
   }
 })

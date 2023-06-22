@@ -26,7 +26,7 @@
 import Dropdown from '@components/ElementPlusEncapsulation/Basics/Dropdown.vue'
 import { useI18n } from 'vue-i18n'
 import { lang } from '@/i18n'
-import { useLayoutStore } from '@store/layout'
+import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
 const { language } = storeToRefs(layoutStore)
@@ -60,3 +60,4 @@ watch(
   color: $theme-color;
 }
 </style>
+~/src/stores/layout/layout

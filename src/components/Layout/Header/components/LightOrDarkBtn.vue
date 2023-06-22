@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLayoutStore } from '@store/layout'
+import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
 const { isDark } = storeToRefs(layoutStore)
@@ -21,3 +21,4 @@ const { isDark } = storeToRefs(layoutStore)
 .content {
 }
 </style> -->
+~/src/stores/layout/layout

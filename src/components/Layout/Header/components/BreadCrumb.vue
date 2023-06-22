@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLayoutStore } from '@store/layout'
+import { useLayoutStore } from '@stores/layout'
 const route = useRoute()
 const router = useRouter()
 
@@ -35,3 +35,4 @@ const checkSessionMenuActiveIndex = () => {
 }
 checkSessionMenuActiveIndex()
 </script>
+~/src/stores/layout/layout

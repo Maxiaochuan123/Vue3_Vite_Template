@@ -9,9 +9,19 @@
 import 'normalize.css'
 import '@assets/styles/reset/index.scss'
 
-// 明亮模式 / 黑暗模式
-import '@assets/styles/theme/dark.scss'
-import '@assets/styles/theme/light.scss'
+// 日间模式 / 夜间模式
+import '@assets/styles/theme/mode/light.scss'
+import '@assets/styles/theme/mode/dark.scss'
+
+// 主题色
+import '@assets/styles/theme/color/atDusk.scss'
+import '@assets/styles/theme/color/volcano.scss'
+import '@assets/styles/theme/color/dusk.scss'
+import '@assets/styles/theme/color/lightCyan.scss'
+import '@assets/styles/theme/color/auroraGreen.scss'
+import '@assets/styles/theme/color/dockBlue.scss'
+import '@assets/styles/theme/color/geekBlue.scss'
+import '@assets/styles/theme/color/default.scss'
 
 // iconfont
 import '@assets/iconfont/iconfont.css'
@@ -30,10 +40,7 @@ import router from './router'
 app.use(router)
 
 // Pinia
-import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate' // 持久化
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
+import pinia from '~/src/plugins/piniaPersistedstate'
 app.use(pinia)
 
 // i18n

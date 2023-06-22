@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLayoutStore } from '@store/layout'
+import { useLayoutStore } from '@stores/layout'
 const layoutStore = useLayoutStore()
 const { menuIsCollapse, menuIconArrow, menuActiveIndex } = storeToRefs(layoutStore)
 
@@ -95,12 +95,17 @@ const menus: Menus[] = [
     path: '/'
   },
   {
+    title: 'Table',
+    icon: 'icon-jingpinshuju',
+    path: '/table'
+  },
+  {
     title: '考试与调查',
     icon: 'icon-kaoshiyutiaocha',
     children: [
       {
-        title: 'aaaaa',
-        path: '/element'
+        title: 'a',
+        path: '/kao/a'
       }
     ]
   },
@@ -109,15 +114,15 @@ const menus: Menus[] = [
     icon: 'icon-feiyongedu',
     children: [
       {
-        title: 'aaaaa',
-        path: '/a'
+        title: 'element',
+        path: '/fei/element'
       },
       {
-        title: 'bbbbb',
+        title: 'c',
         children: [
           {
-            title: 'ccccc',
-            path: '/c'
+            title: 'c',
+            path: '/fei/c'
           }
         ]
       }

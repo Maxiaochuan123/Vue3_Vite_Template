@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLayoutStore } from '@store/layout'
+import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
 const { menuIsCollapse } = storeToRefs(layoutStore)
@@ -44,3 +44,4 @@ const { menuIsCollapse } = storeToRefs(layoutStore)
   }
 }
 </style>
+~/src/stores/layout/layout

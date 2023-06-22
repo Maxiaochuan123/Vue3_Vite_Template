@@ -5,18 +5,18 @@
  * @LastEditTime: 2022-10-17
  * @Description: Storage 封装
  */
-import { dataIsEmpty } from './judge'
+import { dataIsEmpty } from './determine'
 
 interface StorageType {
   local: Storage
-  sesstion: Storage
+  session: Storage
 }
 
-type Type = 'local' | 'sesstion'
+type Type = 'local' | 'session'
 
 const storageTypes: StorageType = {
   local: localStorage,
-  sesstion: sessionStorage
+  session: sessionStorage
 }
 
 const storageGetItem = (type: Type, key: string): any => {

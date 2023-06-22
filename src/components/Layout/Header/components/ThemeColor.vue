@@ -20,9 +20,9 @@
             <el-tooltip :content="item.describe" placement="top" effect="light">
               <div
                 :style="{ backgroundColor: item.color }"
-                @click="layoutStore.toggleTheme(item.describe)"
+                @click="layoutStore.toggleThemeColor(item.type)"
               >
-                <IconBasic v-show="item.describe === theme" icon="icon-choice"></IconBasic>
+                <IconBasic v-show="item.type === themeColor" icon="icon-choice"></IconBasic>
               </div>
             </el-tooltip>
           </div>
@@ -34,21 +34,11 @@
 
 <script lang="ts" setup>
 import Dropdown from '@components/ElementPlusEncapsulation/Basics/Dropdown.vue'
-import { useLayoutStore } from '@store/layout'
+import { themeColorList } from '@hooks/vueuse/useTheme'
+import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
-const { theme } = storeToRefs(layoutStore)
-
-const themeColorList = [
-  { color: '#F5222D', describe: '薄暮' },
-  { color: '#FA541C', describe: '火山' },
-  { color: '#FAAD14', describe: '日暮' },
-  { color: '#13C2C2', describe: '明青' },
-  { color: '#52C41A', describe: '极光绿' },
-  { color: '#4380d3', describe: '船坞蓝' },
-  { color: '#2F54EB', describe: '极客蓝' },
-  { color: '#722ED1', describe: '酱紫' }
-]
+const { themeColor } = storeToRefs(layoutStore)
 </script>
 
 <style lang="scss">
@@ -86,3 +76,4 @@ const themeColorList = [
   }
 }
 </style>
+~/src/hooks/vueUse/useTheme ~/src/stores/layout/layout
