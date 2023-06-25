@@ -1,46 +1,31 @@
-<!--
- * @Date: 2022-09-13
- * @Author: 马晓川 724503670@qq.com
- * @LastEditors: 马晓川 724503670@qq.com
- * @LastEditTime: 2022-10-28
- * @Description: 
--->
 <template>
   <div id="layout">
-    <ElConfigProvider :size="size" :locale="locale[language]">
-      <Menus />
-      <div class="main">
-        <Header />
-        <div class="container neumorphism">
-          <RouterView v-slot="{ Component, route }">
-            <transition name="page">
-              <KeepAlive>
-                <component :is="Component" v-if="route.meta.keepAlive" :key="route.fullPath" />
-              </KeepAlive>
-            </transition>
-
-            <transition name="page">
-              <component :is="Component" v-if="!route.meta.keepAlive" :key="route.fullPath" />
-            </transition>
-          </RouterView>
-        </div>
+    <Menus />
+    <div class="main">
+      <Header />
+      <div class="container neumorphism">
+        <RouterView v-slot="{ Component, route }">
+          <Transition name="page">
+            <KeepAlive :include="caches">
+              <component :is="Component" :key="route.fullPath" />
+            </KeepAlive>
+          </Transition>
+        </RouterView>
       </div>
-    </ElConfigProvider>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-// ElementUi 组件全局配置
-import Menus from './Menus/index.vue'
-import Header from './Header/index.vue'
-import { locale } from '@/plugins/elementPlusConfig'
-import { size } from '@/plugins/elementPlusConfig'
-import { useLayoutStore } from '@stores/layout'
+import Menus from './components/Menus/index.vue'
+import Header from './components/Header/index.vue'
 
+import { useLayoutStore } from '@stores/layout'
 const layoutStore = useLayoutStore()
 const { menuWidth } = storeToRefs(layoutStore)
-const { themeColor, language } = layoutStore
-layoutStore.toggleThemeColor(themeColor)
+
+import { useKeepAlive } from '@stores/keepAlive'
+const { caches } = storeToRefs(useKeepAlive())
 </script>
 
 <style lang="scss" scoped>

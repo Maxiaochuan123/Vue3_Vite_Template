@@ -34,7 +34,7 @@
 
 <script lang="ts" setup>
 import Dropdown from '@components/ElementPlusEncapsulation/Basics/Dropdown.vue'
-import { themeColorList } from '@hooks/vueuse/useTheme'
+import { themeColorList } from '@hooks/layout/useTheme'
 import { useLayoutStore } from '@stores/layout'
 
 const layoutStore = useLayoutStore()
@@ -76,4 +76,3 @@ const { themeColor } = storeToRefs(layoutStore)
   }
 }
 </style>
-~/src/hooks/vueUse/useTheme ~/src/stores/layout/layout

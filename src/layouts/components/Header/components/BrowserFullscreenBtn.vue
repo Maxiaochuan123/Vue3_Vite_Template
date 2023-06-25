@@ -29,4 +29,3 @@ const { isFullscreen } = storeToRefs(layoutStore)
 .content {
 }
 </style> -->
-~/src/stores/layout/layout

@@ -8,20 +8,21 @@
 <template>
   <h1>axois</h1>
   <h4>source: {{ source }}</h4>
-  <el-button type="primary" @click="setUserList()">setUserList</el-button>
+  <el-button type="primary" @click="getUserList()">getUserList</el-button>
 </template>
 
 <script lang="ts" setup>
 import { getUser, login } from '@apis/public/index'
+import { resetRouter } from '@/router'
 
 // 使用 Record 来定义对象类型
 type ObjType = Record<string, object | string | number | Array<number>>
 let source = reactive<ObjType>({ list: {} })
 // onMounted(async () => {
-//   setUserList();
+//   getUserList();
 // });
 
-const setUserList = async () => {
+const getUserList = async () => {
   const data = await getUser({ petId: 1 })
   // const data = await login({ username: 'dsf', password: 'eeee' })
   // console.log(data);

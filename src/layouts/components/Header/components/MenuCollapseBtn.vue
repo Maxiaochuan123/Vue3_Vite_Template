@@ -44,4 +44,3 @@ const { menuIsCollapse } = storeToRefs(layoutStore)
   }
 }
 </style>
-~/src/stores/layout/layout

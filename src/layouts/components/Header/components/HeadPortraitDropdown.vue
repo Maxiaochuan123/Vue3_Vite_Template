@@ -18,17 +18,17 @@
           <span style="margin: 0 2px; font-weight: bold"> - </span>
           <span class="role">管理员</span>
         </el-dropdown-item>
-        <el-dropdown-item>
+        <!-- <el-dropdown-item>
           <IconSymbol icon="icon-setUp" />
           <span class="text">{{ $lang('个人设置') }}</span>
-        </el-dropdown-item>
+        </el-dropdown-item> -->
         <el-dropdown-item>
           <IconSymbol icon="icon-signOut" />
           <span class="text">{{ $lang('退出登录') }}</span>
         </el-dropdown-item>
 
         <!-- 换肤 -->
-        <ThemeColor />
+        <!-- <ThemeColor /> -->
       </el-dropdown-menu>
     </template>
   </Dropdown>
@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import Dropdown from '@components/ElementPlusEncapsulation/Basics/Dropdown.vue'
-import ThemeColor from './ThemeColor.vue'
+// import ThemeColor from './ThemeColor.vue'
 </script>
 
 <style lang="scss">

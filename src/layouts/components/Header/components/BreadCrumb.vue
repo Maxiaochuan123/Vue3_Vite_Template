@@ -9,7 +9,7 @@
   <el-breadcrumb separator="/">
     <el-breadcrumb-item to="/" @click="goHome">首页</el-breadcrumb-item>
     <el-breadcrumb-item v-for="item in BreadCrumbList" :key="item.name" :to="item.path">{{
-      item.meta.cnName || '请设置路由 cnName'
+      item.meta.title || '请设置路由 title'
     }}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
@@ -35,4 +35,3 @@ const checkSessionMenuActiveIndex = () => {
 }
 checkSessionMenuActiveIndex()
 </script>
-~/src/stores/layout/layout

@@ -1,0 +1,16 @@
+// @import './default.scss';
+// @import './atDusk.scss';
+// @import './volcano.scss';
+// @import './dusk.scss';
+// @import './lightCyan.scss';
+// @import './auroraGreen.scss';
+// @import './dockBlue.scss';
+// @import './geekBlue.scss';
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': green
+    )
+  )
+);

@@ -21,11 +21,13 @@
       "~/*": ["./*"],
       "@/*": ["./src/*"],
       "@apis/*": ["./src/service/apis/*"],
+      "@api-types/*": ["./src/service/types/*"],
       "@utils/*": ["./src/utils/*"],
       "@plugins/*": ["./src/plugins/*"],
       "@stores/*": ["./src/stores/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@directive/*": ["./src/directive/*"]
     }
   },
   "include": [
@@ -33,10 +35,10 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "auto-import.d.ts",
+    "types/auto-import.d.ts",
+    "types/components.d.ts",
     "types/vue-instructions.d.ts",
-    "types/declare-module.d.ts",
-    "components.d.ts"
+    "types/declare-module.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -6,24 +6,20 @@
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import PageLaodingBar from '@plugins/pageLoadingBar'
+import baseRoutes from './routes/base'
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'home',
-    meta: { cnName: '首页' },
-    component: () => import('@components/Layout/Home/index.vue')
-  },
+  ...baseRoutes,
   {
     path: '/table',
     name: 'table',
-    meta: { cnName: '表格' },
+    meta: { title: '表格' },
     component: () => import('@components/table/index.vue')
   },
   {
     path: '/kao',
     name: 'kao',
-    meta: { cnName: '考试与调查' },
+    meta: { title: '考试与调查' },
     children: [
       {
         path: 'a',
@@ -40,12 +36,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/fei',
     name: 'fei',
-    meta: { cnName: '费用额度' },
+    meta: { title: '费用额度' },
     children: [
       {
         path: 'element',
         name: 'element',
-        meta: { keepAlive: true },
         component: () => import('@/components/ElementUI/index.vue')
       },
       {
@@ -57,10 +52,17 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
+// 创建路由
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+// 重置路由
+export function resetRouter() {
+  router.replace({ path: '/home' })
+  location.reload()
+}
 
 router.beforeEach((to, from, next) => {
   PageLaodingBar.start()

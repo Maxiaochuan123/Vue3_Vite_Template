@@ -1,5 +1,5 @@
-import useToggleFullscreen from '@/hooks/vueUse/useToggleFullscreen'
-import { useToggleDark, useToggleThemeColor } from '@/hooks/vueUse/useTheme'
+import useToggleFullscreen from '@hooks/layout/useToggleFullscreen'
+import { useToggleDark, useToggleThemeColor } from '@hooks/layout/useTheme'
 
 export const useLayoutStore = defineStore('layout', {
   state: () => ({

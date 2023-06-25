@@ -16,12 +16,12 @@ import { ElMessage } from 'element-plus'
 // import { showLoading, closeLoading } from "./loading";
 import PageLoadingBar from '@plugins/pageLoadingBar'
 
-const $axios: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_URL, //服务请求接口
+const http: AxiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_APP_BASE_API, //服务请求接口
   // withCredentials: true, //跨域是否允许携带凭证
   headers: {
     Authorization: `Bearer ${getToken()}`,
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' //请求头设置
+    'Content-Type': 'application/json;charset=utf-8'
   },
   transformRequest: data => qs.stringify(data), //对发送的 data 进行处理
   timeout: 10000 //接口超时
@@ -30,7 +30,7 @@ const $axios: AxiosInstance = axios.create({
 const canceler = new RequestCanceler()
 
 // axios request 拦截器配置
-$axios.interceptors.request.use(
+http.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // showLoading();
     PageLoadingBar.start()
@@ -46,7 +46,7 @@ $axios.interceptors.request.use(
 )
 
 // axios response 拦截器配置
-$axios.interceptors.response.use(
+http.interceptors.response.use(
   (res: AxiosResponse) => {
     // closeLoading();
     PageLoadingBar.done()
@@ -57,13 +57,10 @@ $axios.interceptors.response.use(
     // 获取状态码
     const code: number = res.data['code'] || 200
 
-    if (code === 200) {
-      return Promise.resolve(res.data)
-    } else {
-      const errorMsg = errorCode(code) || res.data['message']
-      ElMessage.error(errorMsg)
-      return Promise.reject(res.data)
-    }
+    if (code === 200) return Promise.resolve(res.data)
+    const errorMsg = errorCode(code) || res.data['message']
+    ElMessage.error(errorMsg)
+    return Promise.reject(res.data)
   },
   (error: AxiosError) => {
     // closeLoading();
@@ -72,26 +69,27 @@ $axios.interceptors.response.use(
     // 移除正在pending中的请求
     canceler.removePendingRequest(error.config || {})
 
-    const { response } = error
-    let { message } = error
+    const { code, message } = error
+    const errorMsg = errorCode(Number(code)) || message
+    ElMessage.error(errorMsg)
 
-    if (response) {
-      if (message == 'Network Error') {
-        message = '后端接口连接异常'
-      } else if (message.includes('timeout')) {
-        message = '系统接口请求超时'
-      } else if (message.includes('Request failed with status code')) {
-        message = '系统接口' + message.substring(message.length - 3) + '异常'
-      }
-      ElMessage.error(message)
-    } else {
-      if (!window.navigator.onLine) {
-        //断网处理：跳转到断网页面
-        return
-      }
-      return Promise.reject(error)
-    }
+    // if (response) {
+    //   if (message == 'Network Error') {
+    //     message = '后端接口连接异常'
+    //   } else if (message.includes('timeout')) {
+    //     message = '系统接口请求超时'
+    //   } else if (message.includes('Request failed with status code')) {
+    //     message = '系统接口' + message.substring(message.length - 3) + '异常'
+    //   }
+    //   ElMessage.error(message)
+    // } else {
+    //   if (!window.navigator.onLine) {
+    //     //断网处理：跳转到断网页面
+    //     return
+    //   }
+    //   return Promise.reject(error)
+    // }
   }
 )
 
-export default $axios
+export default http

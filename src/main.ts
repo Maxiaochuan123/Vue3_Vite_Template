@@ -14,14 +14,15 @@ import '@assets/styles/theme/mode/light.scss'
 import '@assets/styles/theme/mode/dark.scss'
 
 // 主题色
-import '@assets/styles/theme/color/atDusk.scss'
-import '@assets/styles/theme/color/volcano.scss'
-import '@assets/styles/theme/color/dusk.scss'
-import '@assets/styles/theme/color/lightCyan.scss'
-import '@assets/styles/theme/color/auroraGreen.scss'
-import '@assets/styles/theme/color/dockBlue.scss'
-import '@assets/styles/theme/color/geekBlue.scss'
-import '@assets/styles/theme/color/default.scss'
+// import '@assets/styles/theme/color/index.scss'
+// import '@assets/styles/theme/color/atDusk.scss'
+// import '@assets/styles/theme/color/volcano.scss'
+// import '@assets/styles/theme/color/dusk.scss'
+// import '@assets/styles/theme/color/lightCyan.scss'
+// import '@assets/styles/theme/color/auroraGreen.scss'
+// import '@assets/styles/theme/color/dockBlue.scss'
+// import '@assets/styles/theme/color/geekBlue.scss'
+// import '@assets/styles/theme/color/default.scss'
 
 // iconfont
 import '@assets/iconfont/iconfont.css'
@@ -40,8 +41,12 @@ import router from './router'
 app.use(router)
 
 // Pinia
-import pinia from '~/src/plugins/piniaPersistedstate'
+import pinia from '@/plugins/piniaPersistedstate'
 app.use(pinia)
+
+// 注册自定义指令
+import { setDirective } from '@directive/global'
+app.use(setDirective)
 
 // i18n
 import { i18n, lang } from '@/i18n'

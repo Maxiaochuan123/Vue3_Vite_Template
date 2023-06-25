@@ -60,4 +60,3 @@ watch(
   color: $theme-color;
 }
 </style>
-~/src/stores/layout/layout

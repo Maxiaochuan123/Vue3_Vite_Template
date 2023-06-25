@@ -11,10 +11,10 @@ import { defineConfig, loadEnv } from 'vite'
 // 组件设置 name
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
-// 自动导入内置属性
+// 按需自动导入api
 import AutoImport from 'unplugin-auto-import/vite'
 
-// 按需加载自定义组件
+// 按需自动导入组件
 import Components from 'unplugin-vue-components/vite'
 
 // 动态按需引入 Element-Plus
@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
       vueSetupExtend(),
       AutoImport({
         imports: ['vue', 'vue-router', 'pinia'],
-        dts: 'src/auto-import.d.ts',
+        dts: './types/auto-import.d.ts',
 
         // 动态按需引入 element-plus (1)
         resolvers: [ElementPlusResolver()]
@@ -55,6 +55,7 @@ export default defineConfig(({ mode }) => {
       Components({
         dirs: ['src/components/global'], // 自动导入组件路径 删除此项默认是 dirs: ['src/components'], 这会导入该路径下所有组件为全局组件，将会导致项目启动编译缓慢 白屏等待时间增加
         // 动态按需引入 element-plus (2)
+        dts: './types/components.d.ts',
         resolvers: [ElementPlusResolver()]
       }),
       ElementPlus({ useSource: true }), // 动态按需引入 element-plus 样式文件 (3)
@@ -99,30 +100,35 @@ export default defineConfig(({ mode }) => {
         '@assets': resolve(__dirname, 'src/assets'),
         '@plugins': resolve(__dirname, 'src/plugins'),
         '@apis': resolve(__dirname, 'src/service/apis'),
+        '@api-types': resolve(__dirname, 'src/service/types'),
         '@utils': resolve(__dirname, 'src/utils'),
         '@stores': resolve(__dirname, 'src/stores'),
         '@hooks': resolve(__dirname, 'src/hooks'),
-        '@components': resolve(__dirname, 'src/components')
+        '@components': resolve(__dirname, 'src/components'),
+        '@directive': resolve(__dirname, 'src/directive')
       }
     },
     css: {
       preprocessorOptions: {
         scss: {
           // 公共 scss
-          additionalData: `@use "@assets/styles/global/index.scss" as *;`
+          additionalData: `
+            @use "@assets/styles/global/index.scss" as *;
+            @use "@assets/styles/theme/color/index.scss" as *;
+          `
         }
       }
     },
     server: {
-      // host: '0.0.0.0',
-      // port: 3000, //启动端口
+      host: '0.0.0.0',
+      port: 3000,
       open: true, // 服务启动时是否自动打开浏览器
       cors: true, // 允许跨域
       proxy: {
-        '/m1': {
-          target: env.VITE_APP_BASE_URL,
+        [env.VITE_APP_BASE_API]: {
+          target: 'http://127.0.0.1:4523/',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/m1/, '')
+          rewrite: path => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), '')
         }
       }
     },

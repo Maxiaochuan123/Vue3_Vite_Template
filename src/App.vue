@@ -7,39 +7,20 @@
 -->
 
 <template>
-  <Layout>
-    <!-- 配合 Router 组件打开 -->
-    <!-- <router-view /> -->
-
-    <!-- <Pinia /> -->
-    <!-- <ToRef_ToRefs /> -->
-    <!-- <ToRefs /> -->
-    <!-- <DynamicComponents/> -->
-    <!-- <Slot/> -->
-    <!-- <FatherAndSon /> -->
-    <!-- <Brother /> -->
-    <!-- <VModel /> -->
-    <!-- <DynamicCss /> -->
-    <!-- <Axios /> -->
-    <!-- <ElementUI /> -->
-    <!-- <Provide_Inject /> -->
-    <!-- <MySuspense /> -->
-  </Layout>
+  <ElConfigProvider :size="size" :locale="locale[language]">
+    <Layouts />
+  </ElConfigProvider>
 </template>
 
 <script setup lang="ts">
-// 测试组件
-import Layout from '@components/Layout/index.vue'
-import Pinia from '@components/Pinia/index.vue'
-import ToRef_ToRefs from '@components/ToRef&ToRefs/index.vue'
-import DynamicComponents from '@components/DynamicComponents/index.vue'
-import Slot from '@components/Slot/index.vue'
-import FatherAndSon from '@components/FatherAndSon/Father.vue'
-import Brother from '@components/Brother/index.vue'
-import DynamicCss from '@components/DynamicCss/jsStyle.vue'
-import VModel from '@components/V-Model/Father.vue'
-import Axios from '@components/Axios/index.vue'
-import ElementUI from '@components/ElementUI/index.vue'
-import Provide_Inject from '@components/Provide&Inject/index.vue'
-import MySuspense from '@components/Suspense/index.vue'
+import Layouts from '@/layouts/index.vue'
+
+// ElementUi 组件全局配置
+import { locale } from '@/plugins/elementPlusConfig'
+import { size } from '@/plugins/elementPlusConfig'
+import { useLayoutStore } from '@stores/layout'
+
+const layoutStore = useLayoutStore()
+const { themeColor, language } = layoutStore
+layoutStore.toggleThemeColor(themeColor)
 </script>
